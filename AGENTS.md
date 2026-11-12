@@ -4,7 +4,7 @@ This is Jack Winter's home repository for agent sessions. Use it to find the rig
 
 ## Enter a project
 
-1. Identify the project and requested outcome. Read only its wiki page and the relevant steering guidance. Start with [working preferences](steering/working-preferences.md).
+1. Identify the project and requested outcome. Read only its wiki page and the relevant steering guidance. Start with [working preferences](steering/working-preferences.md). Before changing code, read the [coding standards](steering/coding-standards.md).
 2. Resolve the project path relative to this repository root, not the current shell directory. Confirm the checkout and remote before acting. If it is missing, ask for its location rather than cloning or creating a replacement without authorization.
 3. Read the target repository's applicable contributor instructions, including instructions for the files you will touch. Inspect its current Git state and preserve existing work.
 4. Load the relevant Pancake Stack workflow when available. Do not read every skill or copy the plugin into this repository. If an explicitly requested skill is unavailable, report that rather than claiming to have used it.
