@@ -16,6 +16,7 @@ This is Jack Winter's home repository for agent sessions. Use it to find the rig
 | --- | --- | --- |
 | Pancake Stack | `../pancake-stack` | [Library and evaluator](wiki/pancake-stack.md) |
 | Pancake Stack Evals | `../pancake-stack-evals` | [Library and evaluator](wiki/pancake-stack.md) |
+| Elvis | `../elvis` | [Desktop spaniel for Claude Code](wiki/elvis.md) |
 
 ## Keep context trustworthy
 
