@@ -30,7 +30,7 @@ Line-count rules are local. pancake-ui lints runtime components at 180 lines, ex
 
 Honour a repo's dependency bans. brain-cache's `CLAUDE.md` rules out LangChain, LlamaIndex, the Vercel AI SDK, Postgres, Redis, the old `vectordb` package, and ts-node.
 
-For a comment cleanup, follow `skills/pancake/references/comment-cleanup.md`. Leave comments that record a constraint the code cannot show.
+For a comment cleanup, follow `~/repos/pancake-stack/skills/pancake/references/comment-cleanup.md` in the pancake-stack checkout. Leave comments that record a constraint the code cannot show.
 
 Spelling follows the file you are editing. The public portfolio uses British spelling (`specialise`, `optimisation`). Some repo docs use American spelling (`behavior`, `organizing`). Do not mass-correct either.
 

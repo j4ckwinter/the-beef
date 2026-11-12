@@ -22,7 +22,7 @@ Write the subject in the imperative. Describe the resulting change, not the conv
 
 None of the public repos read for this file had a pull request template. If the target repo gains one, follow it.
 
-Otherwise lead with the problem and the resulting behaviour. Add the checks that actually ran, and any risk or unfinished check that still matters. `skills/pr/SKILL.md` is the longer workflow. Do not invent ticket links or closing keywords.
+Otherwise lead with the problem and the resulting behaviour. Add the checks that actually ran, and any risk or unfinished check that still matters. The pr workflow in the pancake-stack plugin (`~/repos/pancake-stack/skills/pr/SKILL.md`) is the longer version. Do not invent ticket links or closing keywords.
 
 ## What stays out of a commit
 

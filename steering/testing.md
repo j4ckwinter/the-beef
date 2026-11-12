@@ -26,7 +26,7 @@ For a refactor, take a baseline and repeat the affected checks afterwards. panky
 
 When a check fails, find out whether the implementation or the expectation is wrong. pancake-ui forbids dropping assertions, skipping tests, broadening exceptions, or updating screenshot baselines merely to make a failure pass. Its ESLint config rejects focused, skipped, and expected-failure tests in the verification suites.
 
-Exercise the interface the claim is about. A screenshot of an unrelated build is not coverage for a component change. The verify skill in `skills/verify/SKILL.md` is the longer procedure.
+Exercise the interface the claim is about. A screenshot of an unrelated build is not coverage for a component change. The verify workflow in the pancake-stack plugin (`~/repos/pancake-stack/skills/verify/SKILL.md`) is the longer procedure.
 
 Use isolated test data. panky forbids creating test conversations in the live database, and its server binds to loopback by default. Keep credentials out of logs and frontend environment variables.
 

@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "pancake-stack": {
+      "source": {
+        "source": "directory",
+        "path": "../pancake-stack"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "pancake-stack@pancake-stack": true
+  }
+}
