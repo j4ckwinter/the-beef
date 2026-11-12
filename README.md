@@ -8,12 +8,6 @@ This follows Matt Pocock's [home repo](https://x.com/mattpocockuk/status/2120260
 
 Clone this repo to `~/repos/the-beef` and clone [pancake-stack](https://github.com/j4ckwinter/pancake-stack) to `~/repos/pancake-stack`. Start the agent in `the-beef`.
 
-`AGENTS.md` is the entry point. It says who Jack is, how he wants agents to work, and where to clone each project:
-
-```text
-For brain-cache, clone j4ckwinter/brain-cache to ~/repos/brain-cache.
-```
-
 Read `steering/` before editing any repo. For a workflow, use the plugin rather than a copy of its files.
 
 Claude Code loads it from the sibling checkout. `.claude/settings.json` points at `../pancake-stack` and enables `pancake-stack@pancake-stack`. If a session says the plugin is not installed, run this from `~/repos/pancake-stack`:
@@ -34,8 +28,20 @@ Skills are `/pancake-stack:<skill>` in Claude Code and `$pancake-stack:<skill>` 
 
 | Path | What it is |
 | --- | --- |
-| `AGENTS.md` | Session brief, plugin install, and clone pointers. |
+| `AGENTS.md` | Session brief, Pancake Stack install, and the repo list. |
 | `.claude/settings.json` | Enables the Pancake Stack plugin from `~/repos/pancake-stack`. |
-| `steering/` | Standing rules for code style, verification, and commits, taken from conventions already visible in Jack's repos. |
+| `steering/` | Standing rules for code style, verification, and commits. |
 
-Other projects stay in their own git history. Clone one under `~/repos/` when the work needs it, and follow that repo's own `AGENTS.md` or `CLAUDE.md` while you are there. There is no wiki in this repo.
+Other projects stay in their own git history. There is no wiki in this repo.
+
+## Add a repo
+
+The Repos list in `AGENTS.md` starts with pancake-stack only. Add the next project there when you want an agent to know about it.
+
+Append one bullet:
+
+```text
+- For <name>, clone <owner>/<repo> to ~/repos/<name>. <one sentence.>
+```
+
+`<name>` is the folder under `~/repos/`. The sentence comes from that repo's own README or code. A private repo gets the clone line and a neutral sentence, and nothing from inside it is copied here. Do not add a wiki page or a second copy of the project.

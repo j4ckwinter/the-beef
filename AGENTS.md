@@ -1,12 +1,12 @@
 # the-beef
 
-This is Jack Winter's home repo for coding agents. Start sessions here. Standing rules live in this checkout. Workflows come from the Pancake Stack plugin, which stays in its own repo. Other projects are cloned only when a task needs them.
+This is Jack Winter's home repo for coding agents. Start sessions here. Standing rules live in this checkout. Workflows come from the Pancake Stack plugin. Other projects are cloned only when a task needs them, and only after they are listed under Repos.
 
 Before working in any repo, including this one, read `steering/`. Use the Pancake Stack plugin for the task workflow.
 
 ## Jack
 
-Jack Winter is a London-based senior frontend engineer. His public portfolio in winterbot describes 8+ years building customer-facing products with React and TypeScript, specialising in real-time interfaces and browser performance, and open-source tools for AI coding agents.
+Jack Winter is a London-based senior frontend engineer with 8+ years building customer-facing products in React and TypeScript. He specialises in real-time interfaces, browser performance, and tools for AI coding agents.
 
 He develops on a Mac and a Windows PC. Local models run through Ollama on the Windows machine.
 
@@ -15,7 +15,7 @@ He develops on a Mac and a Windows PC. Local models run through Ollama on the Wi
 - Follow `steering/code-style.md`, `steering/testing.md`, and `steering/commits-and-prs.md`. When the repo you are editing has its own `AGENTS.md` or `CLAUDE.md`, that file wins for that repo.
 - Match the code, formatter, package manager, and recent commits already in the repo. Leave a gap as a gap rather than inventing a house rule to fill it.
 - Stay inside the requested change. Publishing, deploying, merging, and global tool configuration need an explicit request.
-- Clone a repo below only when the task needs it. If `~/repos/<name>` already exists, use that checkout.
+- Clone a repo from the list below only when the task needs it. If `~/repos/<name>` already exists, use that checkout.
 - There is no wiki, and no copy of the Pancake Stack skills in this repo. Do not add either unless Jack asks.
 
 ## Pancake Stack
@@ -44,15 +44,24 @@ In Claude Code the skills are `/pancake-stack:<skill>`. In Codex they are `$panc
 
 On a host that does not load either plugin, read `~/repos/pancake-stack/skills/<skill>/SKILL.md`. Leave those files in that repo.
 
+## Adding a repo
+
+Add a project here only when Jack asks. Edit this file. Append one bullet to the Repos list. Do not create a directory, a wiki page, or a copy of that repo's files in the-beef.
+
+Use this form, as its own bullet:
+
+```text
+- For <name>, clone <owner>/<repo> to ~/repos/<name>. <one sentence.>
+```
+
+`<name>` is the directory under `~/repos/`. `<owner>/<repo>` is the GitHub repository. End the clone sentence with a full stop, then one sentence of description.
+
+Read that repo's README or code and take the sentence from there. Do not invent it. If the default branch is not `main`, say so in that same bullet.
+
+A private repo gets the clone line and a neutral sentence that does not come from inside the repo. Copy nothing from a private repo into this public one.
+
+Leave the Repos list otherwise unchanged. Commit the new bullet when Jack asks for the change.
+
 ## Repos
 
-- For brain-cache, clone j4ckwinter/brain-cache to ~/repos/brain-cache. Local context engine for Claude Code: it indexes a codebase with AST-aware chunking so retrieval returns relevant chunks instead of whole files. Default branch is `master`.
-- For pancake-stack, clone j4ckwinter/pancake-stack to ~/repos/pancake-stack. The Claude Code and Codex plugin for the workflows above.
-- For pancake-stack-evals, clone j4ckwinter/pancake-stack-evals to ~/repos/pancake-stack-evals. Checks, comparisons, and recorded results for whether those skills help.
-- For panky, clone j4ckwinter/panky to ~/repos/panky. A local-model AI teammate that runs on his PC and on his phone, with saved chats and a Pancake UI interface.
-- For pancake-ui, clone j4ckwinter/pancake-ui to ~/repos/pancake-ui. Reusable React components, compiled styles, and design tokens for web apps.
-- For fantasy-pancake, clone j4ckwinter/fantasy-pancake to ~/repos/fantasy-pancake. A Next.js app for picking Fantasy Premier League transfers, with no login and no automatic transfers.
-- For deedspan, clone j4ckwinter/deedspan to ~/repos/deedspan. A TypeScript SDK for exposing application actions to agents, while the application keeps permissions, approvals, and saved data.
-- For winterbot, clone j4ckwinter/winterbot to ~/repos/winterbot. An explorable portfolio town built with Astro, Preact, and TypeScript, plus a plain portfolio of the same content.
-- For fpl-radar, clone j4ckwinter/fpl-radar to ~/repos/fpl-radar. Private repository. Clone it only when the task needs it, and do not copy anything from it into this public repo.
-- For padel-potato, clone j4ckwinter/padel-potato to ~/repos/padel-potato. An Expo and React Native app for organising padel games with friends.
+- For pancake-stack, clone j4ckwinter/pancake-stack to ~/repos/pancake-stack. Claude Code and Codex plugin for the workflows above.
