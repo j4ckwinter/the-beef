@@ -1,0 +1,3 @@
+interface:
+  display_name: "Challenge"
+  short_description: "Challenge assumptions with optional multi-model review"
