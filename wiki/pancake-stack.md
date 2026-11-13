@@ -1,55 +1,35 @@
 # Pancake Stack and its evaluator
 
-Source snapshot checked on 12 November 2026:
-
-- Library: `634f6549d8e78800b9e1c821d1536417d99c7c45`.
-- Evaluator: `4915ed27495a0d64423f251ceee8462895598017`.
-
-Both checkouts were clean when inspected. These identifiers describe the sources used to write this page, not a requirement to stay on those revisions. Recheck current files before acting.
-
-## What lives where
+Checked on 13 November 2026 against library `634f6549d8e78800b9e1c821d1536417d99c7c45` and evaluator `4915ed27495a0d64423f251ceee8462895598017`. These identifiers describe the sources used to write this page, not a requirement to stay on those revisions.
 
 | Repository | Path from the home repo | Purpose |
 | --- | --- | --- |
-| [Pancake Stack](https://github.com/j4ckwinter/pancake-stack) | `../pancake-stack` | Declarative plugin manifests, 19 shared skills, and user documentation for Codex, Claude Code, and Cursor. |
+| [Pancake Stack](https://github.com/j4ckwinter/pancake-stack) | `../pancake-stack` | Plugin manifests, the shared skills, and user documentation for Codex, Claude Code, and Cursor. |
 | [Pancake Stack Evals](https://github.com/j4ckwinter/pancake-stack-evals) | `../pancake-stack-evals` | Package checks, fixtures, historical evidence, and evaluation tooling. |
 
-Start with the library's [contributor instructions](../../pancake-stack/AGENTS.md) and [README](../../pancake-stack/README.md). For evaluator work, read its [contributor instructions](../../pancake-stack-evals/AGENTS.md) and [README](../../pancake-stack-evals/README.md) too.
+Each project owns its own facts. For the library, read its [contributor instructions](../../pancake-stack/AGENTS.md), [README](../../pancake-stack/README.md), and [verification guide](../../pancake-stack/docs/verification.md). For the evaluator, read its [contributor instructions](../../pancake-stack-evals/AGENTS.md) and [README](../../pancake-stack-evals/README.md). They hold the commands, the commit rules, what needs authorization, and what the checks do and do not prove.
 
-The library is a collection of instructions, not an application server. Use its [installation guides](../../pancake-stack/README.md) to load it in an agent host when installation is authorized. Keep workflow changes in the library and tests or trial evidence in the evaluator.
+This page holds only what neither repository can own alone: how the two fit together, and how the library is installed on Jack's Mac.
 
-## Run package checks
+## How the two fit together
 
-From the library checkout:
+- A change to a workflow belongs in the library. Its tests, fixtures, and trial evidence belong in the evaluator. One task can need both, and each repository needs its own authorization.
+- The evaluator treats the library checkout as a read-only input. A check run records both revisions and fails if either tree changes while it runs, so leave both checkouts alone until it finishes. The [runner](../../pancake-stack-evals/run_checks.py) refuses an output file inside either checkout.
+- The checks can start from either checkout. The library's contributor instructions give the command to run there, and the evaluator's README gives the command to run from the evaluator.
+- Both commands use whatever evaluator revision is checked out locally. CI uses the revision pinned in the library's [checks workflow](../../pancake-stack/.github/workflows/checks.yml), which can differ. On 13 November 2026 the pin was `563502ee4c6caa43504446a6d13bdd450835d521`, not the local evaluator's revision. The verification guide shows how to run against the pin.
+- Publish an evaluator change before advancing the library's pin to it.
 
-```sh
-python3 -B ../pancake-stack-evals/run_checks.py --source .
-```
+## How the library is installed here
 
-Or from the evaluator checkout:
+Checked on 13 November 2026 with Claude Code 2.1.323.
 
-```sh
-python3 -B run_checks.py --source ../pancake-stack --output /tmp/pancake-checks.json
-```
-
-The evaluator README specifies Python 3.12, matching CI. These commands use the local evaluator revision. To reproduce CI's exact evaluator, follow the library's [verification recipe](../../pancake-stack/docs/verification.md#run-the-checks), which resolves the pin in [.github/workflows/checks.yml](../../pancake-stack/.github/workflows/checks.yml) through a temporary detached checkout.
-
-The [runner](../../pancake-stack-evals/run_checks.py) runs the test suite and records source identity. Keep both trees unchanged during checks: an edit during the run invalidates its preservation check. An optional output file must be outside both checkouts. The output path above is overwritten if reused; choose another path when retaining earlier results.
-
-Commands here were checked against the source, not rerun while creating this page. Consult current output and the project's verification records for test results.
-
-## Gotchas and boundaries
-
-- Do not bundle executable helpers, tests, or evaluation evidence into the library. Its contributor instructions also restrict additions to the authorized skills.
-- Keep the portable manifest and native Claude package identity consistent. Installation and discovery are separate host checks; passing package tests does not prove them.
-- The documented Cursor route clones into its local plugins directory and updates with Git. Cursor loading and workflows were still unverified in the inspected sources; see the [Cursor guide](../../pancake-stack/docs/cursor.md).
-- Live model trials require explicit task authorization, isolated profiles, and bounded execution. Keep raw records private and outside both repositories. Ordinary package checks do not authorize live trials, installation, publication, or global settings changes.
-- Historical helper tests exercise retired functionality in evaluator fixtures. Do not interpret their success as proof of current plugin capabilities.
-- The library uses Conventional Commits. Read current repository instructions before committing or preparing a PR.
+- The plugin is installed at user scope from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as `../pancake-stack`, and a session on that day loaded its skills from `../pancake-stack/skills`.
+- The same command reports the installed version as 0.21.20 beside a folder version of 0.21.22. The first figure is only the install record.
+- An edit to a skill in the checkout therefore changes the workflow every Claude Code session on this Mac uses. The verification guide says a local install picks up edits at the next session start or after `/reload-plugins`. While a skill is half edited, new sessions get the half-edited version.
 
 ## Source links
 
-For readers on GitHub, these links preserve the inspected versions:
+The sibling links above work locally. For readers on GitHub, these preserve the inspected versions:
 
 - [Library instructions](https://github.com/j4ckwinter/pancake-stack/blob/634f6549d8e78800b9e1c821d1536417d99c7c45/AGENTS.md), [README](https://github.com/j4ckwinter/pancake-stack/blob/634f6549d8e78800b9e1c821d1536417d99c7c45/README.md), and [verification guide](https://github.com/j4ckwinter/pancake-stack/blob/634f6549d8e78800b9e1c821d1536417d99c7c45/docs/verification.md).
 - [Evaluator instructions](https://github.com/j4ckwinter/pancake-stack-evals/blob/4915ed27495a0d64423f251ceee8462895598017/AGENTS.md), [README](https://github.com/j4ckwinter/pancake-stack-evals/blob/4915ed27495a0d64423f251ceee8462895598017/README.md), and [runner](https://github.com/j4ckwinter/pancake-stack-evals/blob/4915ed27495a0d64423f251ceee8462895598017/run_checks.py).
