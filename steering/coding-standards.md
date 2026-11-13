@@ -68,7 +68,7 @@ Whether to commit, and when, follows the project's instructions and the task. Wh
 
 ## Start a new project with these
 
-A session that starts inside a project never reads this file. When setting up a new project of Jack's, write its contributor instructions so the project stands alone:
+A session that starts inside a project reads this file only when the host loads Jack's user-level instructions, which the `the-beef` README describes. Other people and other hosts never read it. When setting up a new project of Jack's, write its contributor instructions so the project stands alone:
 
 - the commands that build and check it;
 - its owners table;

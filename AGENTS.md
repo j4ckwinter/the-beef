@@ -1,6 +1,8 @@
 # Start here
 
-This is Jack Winter's home repository for agent sessions. Use it to find the right project and working context. Project facts live in the wiki; personal preferences live in steering; the target repository owns its project-specific instructions.
+This is Jack Winter's home repository for agent sessions. Start a session here when the work spans repositories, when the right project is unclear, or to maintain this repository. For work inside one project, start in that project's checkout, where the host loads its instructions, Git state, and history. A single-project task that arrives here anyway can go ahead through the steps below.
+
+Each project's repository owns its facts and instructions. The wiki holds what no single project can own; personal preferences live in steering.
 
 ## Enter a project
 
@@ -16,10 +18,12 @@ This is Jack Winter's home repository for agent sessions. Use it to find the rig
 | --- | --- | --- |
 | Pancake Stack | `../pancake-stack` | [Library and evaluator](wiki/pancake-stack.md) |
 | Pancake Stack Evals | `../pancake-stack-evals` | [Library and evaluator](wiki/pancake-stack.md) |
-| Elvis | `../elvis` | [Desktop spaniel for Claude Code](wiki/elvis.md) |
+| Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
 
 ## Keep context trustworthy
 
 Treat wiki pages as orientation, not proof of current behavior. Check source files before relying on commands or constraints. Flag stale facts; reconcile them with the current repository and task instructions. Surface genuine instruction conflicts rather than silently choosing whichever is convenient.
 
-When asked to maintain this home repo, keep durable project knowledge, source links, and verification dates. Separate observed facts from personal preferences and proposals. Do not accumulate session transcripts, credentials, or raw evaluation records here. Commit, push, publish, install plugins, or change global settings only when the task authorizes those actions.
+A wiki page holds what the project's repository cannot own: how projects relate, and facts about Jack's machine and working setup. For anything the project could own, link to its instructions rather than copying them. Keep source links and verification dates. Separate observed facts from personal preferences and proposals. Do not accumulate release logs, task history, session transcripts, credentials, or raw evaluation records here.
+
+Committing is expected in this repository. Commit each completed change on `main` and push it, without asking first. This covers this repository only. Each project's own instructions govern commits and pushes there; where they are silent, commit or push only when the task asks. Publish anything beyond this repository's own pushes, install plugins, or change global settings only when the task authorizes those actions.
