@@ -24,7 +24,7 @@ This page holds only what neither repository can own alone: how the two fit toge
 Checked on 13 November 2026 with Claude Code 2.1.323.
 
 - The plugin is installed at user scope from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as `../pancake-stack`, and a session on that day loaded its skills from `../pancake-stack/skills`.
-- The same command reports the installed version as 0.21.20 beside a folder version of 0.21.22. The first figure is only the install record.
+- On 14 November 2026, with Claude Code 2.1.325, the same command reported the installed version and the folder version as 0.21.24. The installed figure is only the install record. After a release, `claude plugin marketplace update pancake-stack` followed by `claude plugin update pancake-stack@pancake-stack` brings it up to the folder version.
 - An edit to a skill in the checkout therefore changes the workflow every Claude Code session on this Mac uses. The verification guide says a local install picks up edits at the next session start or after `/reload-plugins`. While a skill is half edited, new sessions get the half-edited version.
 
 ## Source links
