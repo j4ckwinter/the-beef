@@ -11,8 +11,21 @@ This page holds only what that repository cannot: how the fork is arranged, and 
 Checked on 15 November 2026 against `15397ab4`.
 
 - `origin` is Jack's fork and `upstream` is `n8n-io/nod`. The fork was made and cloned on 15 November 2026 with `main` level with upstream.
-- Nod is an upstream project, so its instructions and style come before Jack's coding standards. Its first rule is not to push, deploy, or publish without explicit authorization. That covers pushes to the fork too.
-- A pull request to upstream leaves Jack's account and reaches n8n's maintainers. It needs his request each time.
+- The fork is Jack's own build. On 15 November 2026 he said it is for building something for himself, not for contributing. Do not propose upstream pull requests, issues, or discussions for work here.
+- `main` stays a clean copy of upstream. Jack's work lives on the long-lived branch `jack`, created on 15 November 2026. Bring upstream's fixes in by updating `main` from `upstream/main` and merging it into `jack`.
+- Put a new feature in new files, with small hooks into upstream's large core files. Upstream changes those files daily, and a small hook keeps a merge cheap.
+- Nod's own instructions and style still govern the code, so Jack's work reads like the code around it. Its first rule is not to push, deploy, or publish without explicit authorization. That covers pushes to the fork too.
+
+## What Jack is building
+
+Agreed on 15 November 2026. This is a plan, not a record of what exists. Check the `jack` branch for that.
+
+1. Mission control: one live page for every task, scheduled run, background check, and helper, with cost and a way to stop work.
+2. Persistent goals: an outcome that stays open, starts tasks toward it, and reports progress. A goal can start work but never grants permission to act.
+3. Phone approvals: an installable phone page with push notifications for approvals, and a private way to reach the Mac from outside.
+4. Model routing: only once the bill matters. Keep the trust check on the strong model and route only the work.
+
+Multi-agent teams are not on the list. Nod already has a coordinator, parallel task sessions, and helpers inside a turn.
 
 ## What this Mac has for running it
 
