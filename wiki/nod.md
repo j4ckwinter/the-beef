@@ -20,19 +20,21 @@ Checked on 15 November 2026.
 
 - Node.js 26.13.0 and pnpm 12.16.1 come from Homebrew. Nod asks for Node.js 24.21.0 or newer.
 - Corepack is not installed, so the guide's `corepack enable` step fails here. It was not needed: inside the checkout `pnpm -v` reports 10.34.5, the version `package.json` pins, because pnpm switches to it by itself.
-- No Docker, Colima, OrbStack, or Podman is installed. The start script calls `docker info` and `docker compose`, so Nod cannot start from source until a container runtime with Compose v2 and Buildx is installed.
+- Docker runs under Colima. Jack chose it in a question dialog on 15 November 2026, when this Mac had no container runtime. Homebrew installed Colima 0.10.3, Docker 29.9.3, Compose 5.7.1, and Buildx 0.39.0. `~/.docker/config.json` was created with `cliPluginsExtraDirs` pointing at `/opt/homebrew/lib/docker/cli-plugins`, which is how `docker` finds the two plugins.
+- The Colima VM was created with `colima start --cpu 4 --memory 8`. It has 4 CPUs, 8 GB of this Mac's 16 GB, and a 100 GB disk. It is not a Homebrew service, so it does not start at login. Run `colima start` before Nod and `colima stop` to give the memory back.
 
-## What starting it touches
+## What starting it does
 
-Read from the start script, the compose file, and the install guide on 15 November 2026. None of it has been observed on this Mac yet.
+Nod first started on this Mac on 15 November 2026 with `pnpm run dev`. The web app answered on `http://127.0.0.1:4310/`, and `/api/session` returned 401 without the access key. Nothing past the start was tried: no onboarding, no model connection, and no task.
 
-- `pnpm run dev` and `pnpm start` both run `scripts/start.mjs`. Use `pnpm run dev`. It reloads on change and leaves usage analytics off. `pnpm start` builds for production and shares usage data with n8n unless `NOD_ANALYTICS_ENABLED=false` is set in `.env`.
-- The script installs dependencies when the lockfile changed. The install sets up Lefthook hooks in the checkout: Prettier and, when it is installed, gitleaks before a commit, and `pnpm run lint` before a push.
-- It creates `.env` from `.env.example` and a data folder at `.local/`, both ignored by Git. `.env` holds the generated database password.
-- It starts the compose project `nod-local`: PostgreSQL on `127.0.0.1:54329`, the containers `nod-workspace` and `nod-browser`, a firewall container, and three Docker volumes.
-- The server listens on `127.0.0.1:4310` and prints an access link ending in `#access=`. The key behind that link is in `.local/access-key`. Treat the link as a credential.
-- On macOS the server keeps its Vault key in the Keychain item `dev.nod.vault`. Saved logins, keys, and cards cannot be read without it.
-- Stopping takes two steps: Ctrl-C for the server, then `docker compose stop` for the containers.
+- `pnpm run dev` and `pnpm start` both run `scripts/start.mjs`. Use `pnpm run dev`. It reloads on change and leaves usage analytics off. `pnpm start` builds for production and shares usage data with n8n unless `NOD_ANALYTICS_ENABLED=false` is set in `.env`. That difference was read from the source and the configuration page, not observed.
+- The first start took about five minutes, most of it building the workspace image at 2.87 GB and the browser image at 1.85 GB. The browser image build logs a Lefthook error about a missing `git`. It is harmless and the build carries on.
+- `pnpm install` set up Lefthook hooks in the checkout, `pre-commit` and `pre-push`. Upstream's `lefthook.yml` says what they run.
+- The start created `.env` from `.env.example` and a data folder at `.local/`, both ignored by Git. `.env` holds the generated database password.
+- It started the compose project `nod-local`: PostgreSQL on `127.0.0.1:54329`, the containers `nod-workspace` and `nod-browser`, a firewall container, and three Docker volumes.
+- The server prints an access link ending in `#access=`. The key behind it is in `.local/access-key`. Treat the link as a credential and keep it out of this wiki, commits, and chat.
+- The server created the Keychain item `dev.nod.vault` for its Vault key. Saved logins, keys, and cards cannot be read without it, so deleting the item needs Jack's request.
+- Stopping takes two steps: Ctrl-C for the server, then `docker compose stop` in the checkout for the containers. The upstream rule against resetting the normal local database covers the `nod-local_postgres-data` volume.
 
 ## Source links
 
