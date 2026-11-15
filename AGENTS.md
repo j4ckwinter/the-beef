@@ -21,6 +21,8 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
 | Panky | `../panky` | [Panky on the Windows PC](wiki/panky.md) |
 
+Jack works on a Mac and a Windows PC. Elvis is checked out only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
+
 ## Keep context trustworthy
 
 Treat wiki pages as orientation, not proof of current behavior. Check source files before relying on commands or constraints. Flag stale facts; reconcile them with the current repository and task instructions. Surface genuine instruction conflicts rather than silently choosing whichever is convenient.

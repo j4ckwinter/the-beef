@@ -1,6 +1,6 @@
 # Elvis on this Mac
 
-[Elvis](https://github.com/j4ckwinter/elvis) is a macOS desktop pet that reacts to Claude Code through a hooks plugin. His checkout is `../elvis`, relative to this repository's root.
+[Elvis](https://github.com/j4ckwinter/elvis) is a macOS desktop pet that reacts to Claude Code through a hooks plugin. His checkout is `../elvis`, relative to this repository's root. He lives only on the Mac. On 15 November 2026 the Windows PC had no Elvis checkout and no Elvis plugin installed.
 
 The project owns its own facts. Read its [contributor instructions](../../elvis/AGENTS.md) for the commands, the working rules, the conventions, and how a release goes out. Read its [README](../../elvis/README.md) for what he does and his known limits. Releases and open work are on GitHub, under [releases](https://github.com/j4ckwinter/elvis/releases) and [issues](https://github.com/j4ckwinter/elvis/issues).
 

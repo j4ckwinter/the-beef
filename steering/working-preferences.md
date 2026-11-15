@@ -2,8 +2,8 @@
 
 These are Jack's agreed working preferences. They apply in every session, whichever repository it starts in. Follow the current task and the target project's applicable instructions; raise conflicts that need a decision.
 
-- Start a session in the project's own checkout when the work sits inside one project. Start in `the-beef`, at `~/dev/the-beef`, when the work spans repositories or the right project is unclear, then load only the context needed for the named project and task.
-- Before acting on anything outside a project's working tree, read that project's page in `~/dev/the-beef/wiki`, if it has one. The page records how the project is installed on Jack's machine and what has needed his approval.
+- Start a session in the project's own checkout when the work sits inside one project. Start in `the-beef` when the work spans repositories or the right project is unclear, then load only the context needed for the named project and task. Its checkout is `~/dev/the-beef` on the Mac and `~/Documents/dev/the-beef` on the Windows PC.
+- Before acting on anything outside a project's working tree, read that project's page in the `wiki` folder of `the-beef`, if it has one. The page records how the project is installed on Jack's machines and what has needed his approval. Each page says which machine its facts describe.
 - Use Pancake Stack for shared workflows. Keep `the-beef` focused on personal orientation and on knowledge no single project can own.
 - Ground project claims in the repository's documentation and code. Distinguish what was inspected, what was tested, and what is still unknown.
 - Keep changes focused and preserve unrelated work. A request to discuss or review remains read-only unless edits are requested.

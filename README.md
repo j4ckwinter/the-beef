@@ -29,6 +29,8 @@ dev/
 └── panky/
 ```
 
+i use two machines, a Mac and a Windows PC. not every project is on both: Elvis is Mac only, and Panky runs on the PC. each wiki page says which machine it describes.
+
 paths in the project map are relative to this repo. links inside wiki pages are relative to the page itself. the sibling links work locally; use the source links for browsing on GitHub.
 
 ## steering everywhere
@@ -38,6 +40,13 @@ steering should reach a session wherever it starts. in Claude Code, `~/.claude/C
 ```text
 @~/dev/the-beef/steering/working-preferences.md
 @~/dev/the-beef/steering/coding-standards.md
+```
+
+that's the Mac. on the Windows PC the checkout is under `Documents`, so the same file there reads:
+
+```text
+@~/Documents/dev/the-beef/steering/working-preferences.md
+@~/Documents/dev/the-beef/steering/coding-standards.md
 ```
 
 the import breaks if this checkout moves. only Claude Code is wired up this way. in other hosts the steering is read in a session that starts here.

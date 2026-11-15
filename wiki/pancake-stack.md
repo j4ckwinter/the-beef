@@ -9,7 +9,7 @@ Checked on 13 November 2026 against library `634f6549d8e78800b9e1c821d1536417d99
 
 Each project owns its own facts. For the library, read its [contributor instructions](../../pancake-stack/AGENTS.md), [README](../../pancake-stack/README.md), and [verification guide](../../pancake-stack/docs/verification.md). For the evaluator, read its [contributor instructions](../../pancake-stack-evals/AGENTS.md) and [README](../../pancake-stack-evals/README.md). They hold the commands, the commit rules, what needs authorization, and what the checks do and do not prove.
 
-This page holds only what neither repository can own alone: how the two fit together, and how the library is installed on Jack's Mac.
+This page holds only what neither repository can own alone: how the two fit together, and how the library is installed on Jack's Mac and on his Windows PC.
 
 ## How the two fit together
 
@@ -19,13 +19,22 @@ This page holds only what neither repository can own alone: how the two fit toge
 - Both commands use whatever evaluator revision is checked out locally. CI uses the revision pinned in the library's [checks workflow](../../pancake-stack/.github/workflows/checks.yml), which can differ. On 13 November 2026 the pin was `563502ee4c6caa43504446a6d13bdd450835d521`, not the local evaluator's revision. The verification guide shows how to run against the pin.
 - Publish an evaluator change before advancing the library's pin to it.
 
-## How the library is installed here
+## How the library is installed on the Mac
 
 Checked on 13 November 2026 with Claude Code 2.1.323.
 
 - The plugin is installed at user scope from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as `../pancake-stack`, and a session on that day loaded its skills from `../pancake-stack/skills`.
 - On 14 November 2026, with Claude Code 2.1.325, the same command reported the installed version and the folder version as 0.21.24. The installed figure is only the install record. After a release, `claude plugin marketplace update pancake-stack` followed by `claude plugin update pancake-stack@pancake-stack` brings it up to the folder version.
 - An edit to a skill in the checkout therefore changes the workflow every Claude Code session on this Mac uses. The verification guide says a local install picks up edits at the next session start or after `/reload-plugins`. While a skill is half edited, new sessions get the half-edited version.
+
+## How the library is installed on the Windows PC
+
+Checked on 15 November 2026 with Claude Code 2.1.325, with the library at `4211c714a108fab9ee43a10cd974fd1458d4bd89` and the evaluator at `4915ed27495a0d64423f251ceee8462895598017`.
+
+- Both checkouts sit beside this repository under `~/Documents/dev`.
+- The install matches the Mac's: user scope, from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as the `pancake-stack` checkout, and a session that day loaded its skills from `../pancake-stack/skills`. The installed version and the folder version were both 0.21.24.
+- The same caution applies. An edit to a skill in the checkout changes the workflow for every Claude Code session on the PC.
+- `~/.claude/CLAUDE.md` was created on 15 November 2026 to import the two steering files from `~/Documents/dev/the-beef`.
 
 ## Source links
 

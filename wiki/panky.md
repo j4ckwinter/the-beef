@@ -14,7 +14,7 @@ Checked on 15 November 2026 against `1853be26378a84338c2b07a32dec0d541c53ba71`. 
 - The launcher runs `apps/server/dist/index.js` with `apps/server/.env`. `pnpm build` rewrites `dist`, so the next launcher start runs whatever was last built in the checkout.
 - `start-panky.ps1 -Update` runs `git pull --ff-only`, installs, and builds. It builds the branch that is checked out, so leave the checkout on the branch Jack expects.
 - Panky's instructions do not say when to commit or push. This repository's rule applies: commit or push there only when the task asks.
-- How Vercel deploys is unknown. The checkout has no `.vercel` folder, so it is not linked to the Vercel CLI. Until someone checks, treat a push to `main` as something that may redeploy the public site.
+- Vercel builds what is pushed to GitHub. On 15 November 2026 GitHub showed a successful `Vercel` commit status on the checked revision, the head of `main`, linking to a deployment in the Vercel project `panky`. Treat a push to `main` as a deploy of the public site. Whether that deployment was promoted to production was not checked in Vercel, and the checkout has no `.vercel` folder, so the Vercel CLI is not linked here.
 
 ## What this PC has
 
@@ -23,17 +23,17 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 - Windows 11 Pro with an NVIDIA GeForce RTX 3080 with 10 GB of memory, and 32 GB of RAM. The agent shell offers Windows PowerShell 5.1 and Git Bash.
 - Node.js 24.20.0 and pnpm 12.16.1. Panky asks for Node 24 or newer and pins that pnpm version.
 - Ollama 0.40.16, installed for Jack's user account. A shortcut in the Startup folder launches it at login. It answered on `127.0.0.1:11434`. The user environment variables `OLLAMA_NO_CLOUD` and `OLLAMA_GO_TEMPLATE` are both `1`, as the README asks, and `OLLAMA_HOST` is unset.
-- Ollama held two models: `qwen3:8b` and `panky-qwen3:8b`. The README at the checked revision names `panky-qwen3:4b`, which was not installed. The checkout had uncommitted changes that day moving the documentation to the 8b model. Which model `.env` names was not read.
+- Ollama held two models: `qwen3:8b` and `panky-qwen3:8b`. The README at the checked revision names `panky-qwen3:4b`, which was not installed. The checkout had uncommitted changes that day moving the documentation and the evaluation defaults to the 8b model. `apps/server/.env` sets `MODEL_NAME=panky-qwen3:8b`. A repository-wide search printed that line by accident.
 - ngrok 3.39.11, installed from the Microsoft Store.
 - Playwright's Chromium is installed under `%LOCALAPPDATA%\ms-playwright`.
-- `apps/server` and `apps/web` each have `.env` and `.env.development`. Their contents were not read. The README describes the development files as moving `pnpm dev` to port 3002 and its own database.
+- `apps/server` and `apps/web` each have `.env` and `.env.development`. Apart from that one line, their contents were not read. The README describes the development files as moving `pnpm dev` to port 3002 and its own database.
 - `apps/server/data` holds the live database `panky.sqlite`, the development database `panky-dev.sqlite`, and a `chatgpt` folder. The folder was not opened. The example configuration puts the ChatGPT subscription credentials there.
 - No backend, tunnel, or development server was running. Nothing answered on ports 3001, 3002, or 5173.
-- This PC has no `~/.claude/CLAUDE.md`, so the steering import described in this repository's README is not set up here. Steering is read only in a session that starts in this repository.
+- `~/.claude/CLAUDE.md` imports the two steering files from `~/Documents/dev/the-beef`, so a Claude Code session that starts in the Panky checkout loads Jack's steering. The file was created on 15 November 2026.
 
 ## Work without disturbing it
 
-- Do not read or print `apps/server/.env`. The example file shows it holds the owner's bearer token and the Notion secrets and key. Git ignores every `.env` file except the examples.
+- Do not read or print `apps/server/.env`, and exclude `.env` files from any search of the checkout. Git ignores them, but `grep -r` does not. The example file shows it holds the owner's bearer token and the Notion secrets and key. Git ignores every `.env` file except the examples.
 - Starting or stopping the launcher needs Jack's request. So does restarting Ollama, changing its environment variables, or creating and removing `panky-` models. `ollama create panky-qwen3:8b` replaces the model the backend is configured to ask for by name.
 - The browser tests are built to stay clear of production. [playwright.config.ts](../../panky/playwright.config.ts) starts its own backend on port 3101 and web app on port 5174, with an in-memory database and the mock model. This was read from the configuration. The tests were not run for this page.
 - `pnpm check` runs the backend tests. Panky's instructions require isolated test databases and forbid test conversations in the live one. That rule was not audited test by test for this page.
