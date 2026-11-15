@@ -13,7 +13,7 @@ Checked on 15 November 2026 by reading the manifests and lockfiles in the checko
 - Panky's web app pins `@jack.winter/pancake-ui` at exactly 0.1.1 in [apps/web/package.json](../../panky/apps/web/package.json). The Mac's Panky checkout was at `8751e457b64fd08f49b1e68c99b0be1f0ca36feb`.
 - `../fantasy-pancake`, which is not in the project map, pins the same version. Its lockfile resolves the package from `registry.npmjs.org`.
 - Both apps install the published package. Neither is linked to the library's checkout, and `npm ls -g` showed no global link. An edit or a build in `../pancake-ui` therefore changes neither app. This differs from Elvis and Pancake Stack, where the checkout is what runs.
-- Version 0.1.2 was published on 15 November 2026, and the registry listed it as `latest` that day. Both apps still pinned 0.1.1. The changelog says 0.1.2 changes no component API or behaviour.
+- Versions 0.1.2 and 0.2.0 were published on 15 November 2026, and the registry listed 0.2.0 as `latest` that day. Both apps still pinned 0.1.1. 0.2.0 makes the default sizing compact after Jack found the components too large in Panky, and removes button `size={48}`. Panky never passes 48, but its own CSS overrides were written against the old sizes.
 - A library change reaches an app only after a new version is published and the app's pin and lockfile move to it. One task can need both repositories, and each needs its own authorization.
 - The library's own [example app](../../pancake-ui/examples/web/package.json) depends on `file:../..`, so it does use the checkout's build.
 
