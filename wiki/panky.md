@@ -13,7 +13,7 @@ Checked on 15 November 2026 against `1853be26378a84338c2b07a32dec0d541c53ba71`. 
 - The public site at [panky.vercel.app](https://panky.vercel.app) sends every `/api` request to an ngrok address, set in [vercel.json](../../panky/apps/web/vercel.json). The [launcher](../../panky/scripts/start-panky.ps1) opens that tunnel to `127.0.0.1:3001` on this PC. When the launcher is running, the backend in this checkout is production.
 - The launcher runs `apps/server/dist/index.js` with `apps/server/.env`. `pnpm build` rewrites `dist`, so the next launcher start runs whatever was last built in the checkout.
 - `start-panky.ps1 -Update` runs `git pull --ff-only`, installs, and builds. It builds the branch that is checked out, so leave the checkout on the branch Jack expects.
-- Panky's instructions do not say when to commit or push. This repository's rule applies: commit or push there only when the task asks.
+- Panky's [contributor instructions](../../panky/AGENTS.md) say to commit or push only when a task asks. Since 15 November 2026 they also hold its decision-owners table and conventions.
 - Vercel builds what is pushed to GitHub. On 15 November 2026 GitHub showed a successful `Vercel` commit status on the checked revision, the head of `main`, linking to a deployment in the Vercel project `panky`. Treat a push to `main` as a deploy of the public site. Whether that deployment was promoted to production was not checked in Vercel, and the checkout has no `.vercel` folder, so the Vercel CLI is not linked here.
 
 ## What this PC has
