@@ -25,8 +25,7 @@ dev/
 ├── the-beef/
 ├── pancake-stack/
 ├── pancake-stack-evals/
-├── elvis/
-└── nod/
+└── elvis/
 ```
 
 paths in the project map are relative to this repo. links inside wiki pages are relative to the page itself. the sibling links work locally; use the source links for browsing on GitHub.

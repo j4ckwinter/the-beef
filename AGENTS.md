@@ -19,7 +19,6 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | Pancake Stack | `../pancake-stack` | [Library and evaluator](wiki/pancake-stack.md) |
 | Pancake Stack Evals | `../pancake-stack-evals` | [Library and evaluator](wiki/pancake-stack.md) |
 | Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
-| Nod | `../nod` | [Nod on this Mac](wiki/nod.md) |
 
 ## Keep context trustworthy
 
