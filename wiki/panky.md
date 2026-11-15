@@ -1,0 +1,49 @@
+# Panky on the Windows PC
+
+[Panky](https://github.com/j4ckwinter/panky) is Jack's AI teammate: a React web app, a Node backend with SQLite, and local models through Ollama. Its checkout is `../panky`, relative to this repository's root.
+
+The project owns its own facts. Read its [contributor instructions](../../panky/AGENTS.md) for the commands, the security rules, and which milestones are authorized. Read its [README](../../panky/README.md) for running it locally, the local model, and the Windows launcher. The [project brief](../../panky/brief.md) holds the milestone detail, and the [architecture case study](../../panky/docs/architecture.md) follows a reply through streaming, cancellation, and recovery.
+
+This page holds only what that repository cannot: how Panky is set up on Jack's Windows PC, and what an agent needs to know to work without disturbing it. The other wiki pages describe Jack's Mac. This one describes the PC.
+
+## The checkout is the production host
+
+Checked on 15 November 2026 against `1853be26378a84338c2b07a32dec0d541c53ba71`. These points were read from the source, not observed running.
+
+- The public site at [panky.vercel.app](https://panky.vercel.app) sends every `/api` request to an ngrok address, set in [vercel.json](../../panky/apps/web/vercel.json). The [launcher](../../panky/scripts/start-panky.ps1) opens that tunnel to `127.0.0.1:3001` on this PC. When the launcher is running, the backend in this checkout is production.
+- The launcher runs `apps/server/dist/index.js` with `apps/server/.env`. `pnpm build` rewrites `dist`, so the next launcher start runs whatever was last built in the checkout.
+- `start-panky.ps1 -Update` runs `git pull --ff-only`, installs, and builds. It builds the branch that is checked out, so leave the checkout on the branch Jack expects.
+- Panky's instructions do not say when to commit or push. This repository's rule applies: commit or push there only when the task asks.
+- How Vercel deploys is unknown. The checkout has no `.vercel` folder, so it is not linked to the Vercel CLI. Until someone checks, treat a push to `main` as something that may redeploy the public site.
+
+## What this PC has
+
+Checked on 15 November 2026 with Claude Code 2.1.325.
+
+- Windows 11 Pro with an NVIDIA GeForce RTX 3080 with 10 GB of memory, and 32 GB of RAM. The agent shell offers Windows PowerShell 5.1 and Git Bash.
+- Node.js 24.20.0 and pnpm 12.16.1. Panky asks for Node 24 or newer and pins that pnpm version.
+- Ollama 0.40.16, installed for Jack's user account. A shortcut in the Startup folder launches it at login. It answered on `127.0.0.1:11434`. The user environment variables `OLLAMA_NO_CLOUD` and `OLLAMA_GO_TEMPLATE` are both `1`, as the README asks, and `OLLAMA_HOST` is unset.
+- Ollama held two models: `qwen3:8b` and `panky-qwen3:8b`. The README at the checked revision names `panky-qwen3:4b`, which was not installed. The checkout had uncommitted changes that day moving the documentation to the 8b model. Which model `.env` names was not read.
+- ngrok 3.39.11, installed from the Microsoft Store.
+- Playwright's Chromium is installed under `%LOCALAPPDATA%\ms-playwright`.
+- `apps/server` and `apps/web` each have `.env` and `.env.development`. Their contents were not read. The README describes the development files as moving `pnpm dev` to port 3002 and its own database.
+- `apps/server/data` holds the live database `panky.sqlite`, the development database `panky-dev.sqlite`, and a `chatgpt` folder. The folder was not opened. The example configuration puts the ChatGPT subscription credentials there.
+- No backend, tunnel, or development server was running. Nothing answered on ports 3001, 3002, or 5173.
+- This PC has no `~/.claude/CLAUDE.md`, so the steering import described in this repository's README is not set up here. Steering is read only in a session that starts in this repository.
+
+## Work without disturbing it
+
+- Do not read or print `apps/server/.env`. The example file shows it holds the owner's bearer token and the Notion secrets and key. Git ignores every `.env` file except the examples.
+- Starting or stopping the launcher needs Jack's request. So does restarting Ollama, changing its environment variables, or creating and removing `panky-` models. `ollama create panky-qwen3:8b` replaces the model the backend is configured to ask for by name.
+- The browser tests are built to stay clear of production. [playwright.config.ts](../../panky/playwright.config.ts) starts its own backend on port 3101 and web app on port 5174, with an in-memory database and the mock model. This was read from the configuration. The tests were not run for this page.
+- `pnpm check` runs the backend tests. Panky's instructions require isolated test databases and forbid test conversations in the live one. That rule was not audited test by test for this page.
+- `pnpm evaluate:ollama --run` uses an in-memory database and the real Ollama. It shares the graphics card with any live reply, so expect it to slow production while it runs. That is an inference and was not measured.
+- SQLite stores chats in plaintext. Treat `apps/server/data` as private, and follow the README's rule to stop the backend before backing it up.
+- The web app uses [Pancake UI](https://github.com/j4ckwinter/pancake-ui) from the npm package `@jack.winter/pancake-ui`. This PC has no checkout of it beside this repository.
+
+## Source links
+
+The sibling links above work locally. For readers on GitHub, these preserve the inspected version:
+
+- [Contributor instructions](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/AGENTS.md), [README](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/README.md), and [project brief](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/brief.md).
+- [Launcher](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/scripts/start-panky.ps1), [deployment routing](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/apps/web/vercel.json), [browser test configuration](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/playwright.config.ts), and [example configuration](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/apps/server/.env.example).
