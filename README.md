@@ -26,10 +26,11 @@ dev/
 ├── pancake-stack/
 ├── pancake-stack-evals/
 ├── elvis/
-└── panky/
+├── panky/
+└── pancake-ui/
 ```
 
-i use two machines, a Mac and a Windows PC. not every project is on both: Elvis is Mac only, and Panky runs on the PC. each wiki page says which machine it describes.
+i use two machines, a Mac and a Windows PC. not every project is on both: Elvis and Pancake UI are Mac only, and Panky runs on the PC. each wiki page says which machine it describes.
 
 paths in the project map are relative to this repo. links inside wiki pages are relative to the page itself. the sibling links work locally; use the source links for browsing on GitHub.
 

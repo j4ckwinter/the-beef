@@ -39,7 +39,7 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 - `pnpm check` runs the backend tests. Panky's instructions require isolated test databases and forbid test conversations in the live one. That rule was not audited test by test for this page.
 - `pnpm evaluate:ollama --run` uses an in-memory database and the real Ollama. It shares the graphics card with any live reply, so expect it to slow production while it runs. That is an inference and was not measured.
 - SQLite stores chats in plaintext. Treat `apps/server/data` as private, and follow the README's rule to stop the backend before backing it up.
-- The web app uses [Pancake UI](https://github.com/j4ckwinter/pancake-ui) from the npm package `@jack.winter/pancake-ui`. This PC has no checkout of it beside this repository.
+- The web app uses [Pancake UI](https://github.com/j4ckwinter/pancake-ui) from the npm package `@jack.winter/pancake-ui`. This PC has no checkout of it beside this repository. The Mac does, and [its page](pancake-ui.md) describes it.
 
 ## Source links
 

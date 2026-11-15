@@ -20,8 +20,9 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | Pancake Stack Evals | `../pancake-stack-evals` | [Library and evaluator](wiki/pancake-stack.md) |
 | Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
 | Panky | `../panky` | [Panky on the Windows PC](wiki/panky.md) |
+| Pancake UI | `../pancake-ui` | [Pancake UI on this Mac](wiki/pancake-ui.md) |
 
-Jack works on a Mac and a Windows PC. Elvis is checked out only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
+Jack works on a Mac and a Windows PC. Elvis and Pancake UI are checked out only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
 
 ## Keep context trustworthy
 
