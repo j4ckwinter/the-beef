@@ -8,8 +8,8 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 
 Checked on 16 November 2026.
 
-- Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity strip, experience, projects and skills. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
-- `main` is at `18f2071` and level with `origin/main`. GitHub Actions passed check, test and build on that commit.
+- Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity grid, experience, skills and projects. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
+- `main` is at `703b17e` and level with `origin/main`. That commit redesigned the page after the reference site: icon links, a GitHub tile grid, an experience timeline that morphs into a list with View Transitions, and expandable skills. GitHub Actions passed and Vercel reported a successful deploy on it.
 - Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
 
 ## How it is deployed
