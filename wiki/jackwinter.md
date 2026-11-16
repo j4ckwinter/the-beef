@@ -20,7 +20,7 @@ Checked on 16 November 2026.
 - Jack imported the repository into the Vercel project `jackwinter` from the dashboard. The CLI is not installed on the Mac and the checkout has no `.vercel` folder.
 - It is served at [www.jackwinter.xyz](https://www.jackwinter.xyz/); `jackwinter.xyz` redirects there with a 308. GitHub showed a successful `Vercel` status on `18f2071`.
 - Vercel holds `GITHUB_TOKEN`, a fine-grained token Jack made with read-only access to public repositories. The live page showed 2,114 contributions, matching GitHub's API that day, and brain-cache's 11 stars. When the token expires, the activity strip disappears until it is replaced.
-- Treat a push to `main` as a deploy of the public site. The GitHub data only changes when the site rebuilds. `.github/workflows/rebuild.yml` calls a Vercel deploy hook every morning at 05:00 UTC, but it needs a `VERCEL_DEPLOY_HOOK` repository secret that Jack has to create from the Vercel dashboard; until then the job fails and says so.
+- Treat a push to `main` as a deploy of the public site. The GitHub data only changes when the site rebuilds. `.github/workflows/rebuild.yml` calls a Vercel deploy hook every morning at 05:00 UTC. The hook is stored as the `VERCEL_DEPLOY_HOOK` repository secret, set on 16 November 2026; a manual run that day succeeded and the live page's ETag changed, confirming a rebuild.
 
 ## The reference site
 
