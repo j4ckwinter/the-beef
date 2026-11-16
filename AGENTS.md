@@ -21,8 +21,9 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
 | Panky | `../panky` | [Panky on the Windows PC](wiki/panky.md) |
 | Pancake UI | `../pancake-ui` | [Pancake UI on this Mac](wiki/pancake-ui.md) |
+| Winterbot | `../winterbot` | [Winterbot on this Mac](wiki/winterbot.md) |
 
-Jack works on a Mac and a Windows PC. Elvis and Pancake UI are checked out only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
+Jack works on a Mac and a Windows PC. Elvis and Pancake UI are checked out only on the Mac. Winterbot has been checked only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
 
 ## Keep context trustworthy
 
