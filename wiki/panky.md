@@ -14,6 +14,7 @@ Checked on 15 November 2026 against `1853be26378a84338c2b07a32dec0d541c53ba71`. 
 - The launcher runs `apps/server/dist/index.js` with `apps/server/.env`. `pnpm build` rewrites `dist`, so the next launcher start runs whatever was last built in the checkout.
 - `start-panky.ps1 -Update` runs `git pull --ff-only`, installs, and builds. It builds the branch that is checked out, so leave the checkout on the branch Jack expects.
 - Panky's [contributor instructions](../../panky/AGENTS.md) say to commit or push only when a task asks. Since 15 November 2026 they also hold its decision-owners table and conventions.
+- On 16 November 2026 `ede0eca` was pushed to `main`, and GitHub showed a successful `Vercel` status on it. Jack reported that he then updated this checkout, started the launcher, and that `pnpm --filter @panky/server test` passed on this PC, which covers the backup's file rename on Windows. Whether **Account → Status** reported `ede0eca` was not reported back.
 - Vercel builds what is pushed to GitHub. On 15 November 2026 GitHub showed a successful `Vercel` commit status on the checked revision, the head of `main`, linking to a deployment in the Vercel project `panky`. Treat a push to `main` as a deploy of the public site. Whether that deployment was promoted to production was not checked in Vercel, and the checkout has no `.vercel` folder, so the Vercel CLI is not linked here.
 
 ## What this PC has
@@ -38,7 +39,7 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 - The browser tests are built to stay clear of production. [playwright.config.ts](../../panky/playwright.config.ts) starts its own backend on port 3101 and web app on port 5174, with an in-memory database and the mock model. This was read from the configuration. The tests were not run for this page.
 - `pnpm check` runs the backend tests. Panky's instructions require isolated test databases and forbid test conversations in the live one. That rule was not audited test by test for this page.
 - `pnpm evaluate:ollama --run` uses an in-memory database and the real Ollama. It shares the graphics card with any live reply, so expect it to slow production while it runs. That is an inference and was not measured.
-- SQLite stores chats in plaintext. Treat `apps/server/data` as private, and follow the README's rule to stop the backend before backing it up.
+- SQLite stores chats in plaintext. Treat `apps/server/data` as private, including the `backups` folder inside it. Since `ede0eca`, the README's `pnpm backup` copies the live database while the backend runs. Restoring a copy still needs the backend stopped.
 - The web app uses [Pancake UI](https://github.com/j4ckwinter/pancake-ui) from the npm package `@jack.winter/pancake-ui`. This PC has no checkout of it beside this repository. The Mac does, and [its page](pancake-ui.md) describes it.
 
 ## Source links
@@ -46,4 +47,5 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 The sibling links above work locally. For readers on GitHub, these preserve the inspected version:
 
 - [Contributor instructions](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/AGENTS.md), [README](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/README.md), and [project brief](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/brief.md).
+- [Online backup in the README](https://github.com/j4ckwinter/panky/blob/ede0eca0d0d7e5d482f48afbbdfc9b975dfd4174/README.md#back-up), at `ede0eca`.
 - [Launcher](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/scripts/start-panky.ps1), [deployment routing](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/apps/web/vercel.json), [browser test configuration](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/playwright.config.ts), and [example configuration](https://github.com/j4ckwinter/panky/blob/1853be26378a84338c2b07a32dec0d541c53ba71/apps/server/.env.example).
