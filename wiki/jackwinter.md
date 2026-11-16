@@ -11,7 +11,15 @@ Checked on 16 November 2026.
 - Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity strip, experience, projects and skills. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
 - `main` is at `18f2071` and level with `origin/main`. GitHub Actions passed check, test and build on that commit.
 - Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
-- It has no Vercel project yet. When one is set up, it needs `GITHUB_TOKEN` as an environment variable for the activity strip.
+
+## How it is deployed
+
+Checked on 16 November 2026.
+
+- Jack imported the repository into the Vercel project `jackwinter` from the dashboard. The CLI is not installed on the Mac and the checkout has no `.vercel` folder.
+- It is served at [www.jackwinter.xyz](https://www.jackwinter.xyz/); `jackwinter.xyz` redirects there with a 308. GitHub showed a successful `Vercel` status on `18f2071`.
+- Vercel holds `GITHUB_TOKEN`, a fine-grained token Jack made with read-only access to public repositories. The live page showed 2,114 contributions, matching GitHub's API that day, and brain-cache's 11 stars. When the token expires, the activity strip disappears until it is replaced.
+- Treat a push to `main` as a deploy of the public site. The numbers only change when the site rebuilds; no scheduled rebuild exists.
 
 ## The reference site
 
@@ -22,5 +30,5 @@ Checked on 16 November 2026 by fetching `https://maxkatz.me/`.
 
 ## How it relates to the other projects
 
-- It will take over from Winterbot as the front door. Whether Winterbot's Vercel domain moves or stays has not been decided.
-- Which projects it presents has not been decided. Winterbot presents Pancake Stack and `brain-cache`.
+- It is meant to take over from Winterbot as the front door, and links to Winterbot as a project. Winterbot still serves `winterbyte.vercel.app`, and nothing redirects from it yet.
+- It presents Pancake Stack, `brain-cache`, Pancake UI, Elvis and Winterbot. Their links live in `src/content/projects.ts`.
