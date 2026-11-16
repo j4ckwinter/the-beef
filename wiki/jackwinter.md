@@ -8,9 +8,10 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 
 Checked on 16 November 2026.
 
-- Jack chose Astro with Tailwind. The scaffold renders a header from `src/content/profile.ts`; `npm run check` and `npm run build` passed on the Mac with Node 26.13.0.
-- `main` is at `49f8bdf` and level with `origin/main`. The public GitHub repository `j4ckwinter/jackwinter` was created that day at Jack's request.
-- It has no Vercel project, no CI workflow and no tests. Deploying needs Jack's request.
+- Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity strip, experience, projects and skills. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
+- `main` is at `18f2071` and level with `origin/main`. GitHub Actions passed check, test and build on that commit.
+- Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
+- It has no Vercel project yet. When one is set up, it needs `GITHUB_TOKEN` as an environment variable for the activity strip.
 
 ## The reference site
 
