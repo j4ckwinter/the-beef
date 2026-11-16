@@ -30,7 +30,7 @@ Checked on 16 November 2026 by fetching `https://maxkatz.me/`.
 - Its response headers report `Server: Vercel` and `x-powered-by: Next.js`. The HTML loads `_next` assets and references Geist and Tailwind-style classes.
 
 - A weekly link check (`.github/workflows/links.yml`) passed on 16 November 2026. npmjs.com and LinkedIn refuse automated checkers, so npm links are checked through the registry and LinkedIn's 999 status counts as a pass.
-- Vercel Web Analytics is wired into the page but was not enabled in the Vercel dashboard on 16 November 2026; `/_vercel/insights/script.js` returned 404 until it is.
+- Vercel Web Analytics was enabled on 16 November 2026. The insights route only appeared after a new deployment, so after toggling analytics, trigger one (the rebuild workflow is enough).
 - `vercel.json` redirects Winter Town's old paths (`/portfolio`, `/work/*`, `/places/*`). They take effect for old links once Jack moves `winterbyte.vercel.app` from the winterbot project to this one with a redirect to `www.jackwinter.xyz`; that move had not been made on 16 November 2026.
 
 ## How it relates to the other projects
