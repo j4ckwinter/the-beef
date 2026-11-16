@@ -9,7 +9,8 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 Checked on 16 November 2026.
 
 - Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity grid, experience, education, skills and projects. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
-- `main` is at `564d26d` and level with `origin/main`. Since the redesign it has gained agent pages (`/index.md`, `/llms.txt`), each project's latest non-chore commit under Activity, real company logos as theme-coloured masks, a share card at `/og.png` drawn at build time with Satori and resvg, structured data, `robots.txt`, a sitemap and a 404 page. GitHub Actions passed and Vercel reported a successful deploy on `564d26d`.
+- `main` is at `a648c59` and level with `origin/main`. Since the redesign it has gained agent pages (`/index.md`, `/llms.txt`), each project's latest non-chore commit under Activity, real company logos as theme-coloured masks, a share card at `/og.png` drawn at build time with Satori and resvg, structured data, `robots.txt`, a sitemap, a 404 page, tile tooltips, clickable timeline entries, Jack's local time, project versions from npm or GitHub releases, linkable headings and a print stylesheet that turns the page into a CV. GitHub Actions passed and Vercel reported a successful deploy on `a648c59`.
+- `public/Jack-Winter-CV.pdf` is a copy of `~/Documents/Jack Winter CV.pdf` as of 16 November 2026. When Jack updates that file, copy it in again.
 - Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
 
 ## How it is deployed
