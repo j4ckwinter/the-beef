@@ -9,7 +9,7 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 Checked on 16 November 2026.
 
 - Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity grid, experience, education, skills and projects. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
-- `main` is at `a61541f` and level with `origin/main`. `a61541f` serves the page to agents as `/index.md` and `/llms.txt`, generated from the same content as the HTML. `703b17e` redesigned the page after the reference site (icon links, a GitHub tile grid, an experience timeline that morphs into a list with View Transitions, expandable skills); `1886863` softened dark-mode text, gave education its own section, widened skills from Jack's repos and sorted projects by stars. GitHub Actions passed and Vercel reported a successful deploy on each.
+- `main` is at `564d26d` and level with `origin/main`. Since the redesign it has gained agent pages (`/index.md`, `/llms.txt`), each project's latest non-chore commit under Activity, real company logos as theme-coloured masks, a share card at `/og.png` drawn at build time with Satori and resvg, structured data, `robots.txt`, a sitemap and a 404 page. GitHub Actions passed and Vercel reported a successful deploy on `564d26d`.
 - Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
 
 ## How it is deployed
@@ -19,7 +19,7 @@ Checked on 16 November 2026.
 - Jack imported the repository into the Vercel project `jackwinter` from the dashboard. The CLI is not installed on the Mac and the checkout has no `.vercel` folder.
 - It is served at [www.jackwinter.xyz](https://www.jackwinter.xyz/); `jackwinter.xyz` redirects there with a 308. GitHub showed a successful `Vercel` status on `18f2071`.
 - Vercel holds `GITHUB_TOKEN`, a fine-grained token Jack made with read-only access to public repositories. The live page showed 2,114 contributions, matching GitHub's API that day, and brain-cache's 11 stars. When the token expires, the activity strip disappears until it is replaced.
-- Treat a push to `main` as a deploy of the public site. The numbers only change when the site rebuilds; no scheduled rebuild exists.
+- Treat a push to `main` as a deploy of the public site. The GitHub data only changes when the site rebuilds. `.github/workflows/rebuild.yml` calls a Vercel deploy hook every morning at 05:00 UTC, but it needs a `VERCEL_DEPLOY_HOOK` repository secret that Jack has to create from the Vercel dashboard; until then the job fails and says so.
 
 ## The reference site
 
