@@ -1,6 +1,6 @@
 # jackwinter on this Mac
 
-`jackwinter` is Jack's planned minimal portfolio. It is meant to replace [Winterbot](winterbot.md) as his main site, with a single page in the style of [maxkatz.me](https://maxkatz.me/). Its checkout is `../jackwinter`, relative to this repository's root. This page describes the Mac.
+[jackwinter](https://github.com/j4ckwinter/jackwinter) is Jack's planned minimal portfolio. It is meant to replace [Winterbot](winterbot.md) as his main site, with a single page in the style of [maxkatz.me](https://maxkatz.me/). Its checkout is `../jackwinter`, relative to this repository's root. This page describes the Mac.
 
 The project owns its own facts. Read its [contributor instructions](../../jackwinter/AGENTS.md) and [README](../../jackwinter/README.md).
 
@@ -8,8 +8,9 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 
 Checked on 16 November 2026.
 
-- Created that day as a local Git repository on `main`, with one commit holding the README and `AGENTS.md`. No stack is chosen and nothing is built.
-- It has no remote. `j4ckwinter/jackwinter` did not exist on GitHub. Creating it, pushing and deploying need Jack's request.
+- Jack chose Astro with Tailwind. The scaffold renders a header from `src/content/profile.ts`; `npm run check` and `npm run build` passed on the Mac with Node 26.13.0.
+- `main` is at `49f8bdf` and level with `origin/main`. The public GitHub repository `j4ckwinter/jackwinter` was created that day at Jack's request.
+- It has no Vercel project, no CI workflow and no tests. Deploying needs Jack's request.
 
 ## The reference site
 
