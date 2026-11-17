@@ -31,6 +31,8 @@ A build in the checkout therefore changes the hook for every session, and the `e
 ## What an agent cannot do here
 
 - Screen capture was not permitted from the agent shell on 12 November 2026 and was not tried again on 13 November. Check how he looks through `make sheets` and filmed frames.
+- The agent shell is not trusted for Accessibility (`AXIsProcessTrusted()` was false on 17 November 2026), so synthetic clicks and drags are dropped. His menu and a real drag cannot be driven from here. A stand-in AppKit app can open its own menu in-process with `performClick`, which needs no permission.
+- Docker and Colima are installed. On 17 November 2026 Colima was stopped; it was started for a check and stopped again. Colima shares only folders under the home directory with containers, so a compose project in the scratch directory sees empty volumes.
 - An agent cannot hear him. The bark and yip were checked for length, loudness, and timing, not by ear.
 - This Mac has the Command Line Tools without Xcode. `swift test --arch x86_64` fails to link, because they ship the Swift Testing library for Apple silicon only. Rosetta 2 was installed on 12 November 2026, so an Intel binary runs under `arch -x86_64`. To get one without replacing `plugin/bin/elvis`, build with `swift build -c release --arch arm64 --arch x86_64 --scratch-path <scratch>` and take the Intel half of a copy with `lipo -thin x86_64`. Under Rosetta the Intel half has run only `elvis help`, `elvis version`, and `elvis status`.
 
