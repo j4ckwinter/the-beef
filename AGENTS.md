@@ -20,7 +20,7 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | Pancake Stack Evals | `../pancake-stack-evals` | [Library and evaluator](wiki/pancake-stack.md) |
 | Elvis | `../elvis` | [Elvis on this Mac](wiki/elvis.md) |
 | Panky | `../panky` | [Panky on the Windows PC](wiki/panky.md) |
-| Pancake UI | `../pancake-ui` | [Pancake UI on this Mac](wiki/pancake-ui.md) |
+| Pancake UI (archived) | `../pancake-ui` | [Pancake UI on this Mac](wiki/pancake-ui.md) |
 | Winterbot (archived) | `../winterbot` | [Winterbot on this Mac](wiki/winterbot.md) |
 | jackwinter | `../jackwinter` | [jackwinter on this Mac](wiki/jackwinter.md) |
 
