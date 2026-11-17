@@ -31,9 +31,9 @@ Checked on 16 November 2026 by fetching `https://maxkatz.me/`.
 
 - A weekly link check (`.github/workflows/links.yml`) passed on 16 November 2026. npmjs.com and LinkedIn refuse automated checkers, so npm links are checked through the registry and LinkedIn's 999 status counts as a pass.
 - Vercel Web Analytics was enabled on 16 November 2026. The insights route only appeared after a new deployment, so after toggling analytics, trigger one (the rebuild workflow is enough).
-- `vercel.json` redirects Winter Town's old paths (`/portfolio`, `/places/*`); `/work/kto` is now a real page on this site. The redirects take effect for old links once Jack moves `winterbyte.vercel.app` from the winterbot project to this one with a redirect to `www.jackwinter.xyz`; that move had not been made on 17 November 2026.
+- `vercel.json` redirects Winter Town's old paths (`/portfolio`, `/places/*`); `/work/kto` is now a real page on this site. `winterbyte.vercel.app` now answers with a 308 to `www.jackwinter.xyz`, keeping the path, so old Winter Town links reach these redirects: on 17 November 2026 `/portfolio` landed on the home page, `/work/kto` on the case study, and `/places/kto` on `/index.md`.
 
 ## How it relates to the other projects
 
-- It is meant to take over from Winterbot as the front door, and links to Winterbot as a project. Winterbot still serves `winterbyte.vercel.app`, and nothing redirects from it yet.
+- It is meant to take over from Winterbot as the front door, and links to Winterbot as a project. `winterbyte.vercel.app` redirects here (checked 17 November 2026).
 - It presents Pancake Stack, `brain-cache`, Pancake UI, Elvis and Winterbot. Their links live in `src/content/projects.ts`.
