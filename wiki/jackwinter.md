@@ -35,5 +35,5 @@ Checked on 16 November 2026 by fetching `https://maxkatz.me/`.
 
 ## How it relates to the other projects
 
-- It is meant to take over from Winterbot as the front door, and links to Winterbot as a project. `winterbyte.vercel.app` redirects here (checked 17 November 2026).
-- It presents Pancake Stack, `brain-cache`, Pancake UI, Elvis and Winterbot. Their links live in `src/content/projects.ts`.
+- It has taken over from Winterbot as the front door, and no longer lists Winterbot as a project. `winterbyte.vercel.app` redirects here (checked 17 November 2026).
+- It presents `brain-cache`, Pancake Stack, Pancake UI and Elvis. Their links live in `src/content/projects.ts`.
