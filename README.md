@@ -53,8 +53,23 @@ that's the Mac. on the Windows PC the checkout is under `Documents`, so the same
 
 the import breaks if this checkout moves. only Claude Code is wired up this way. in other hosts the steering is read in a session that starts here.
 
+## make your own
+
+this one's mine, so the wiki and the project map won't mean much to you. the shape is the useful bit. to start your own:
+
+1. copy or fork it, then empty `wiki/` and clear the project map in [AGENTS.md](AGENTS.md).
+2. read the [working preferences](steering/working-preferences.md) and [coding standards](steering/coding-standards.md). keep what you agree with and rewrite the rest. they talk about me by name, so make them about you.
+3. put the checkout beside your projects and add a row to the project map for each one. give a project a wiki page only for what its own repo can't hold.
+4. point your agent at the steering from its user-level instructions, like the `CLAUDE.md` imports above, with your own paths.
+
+the workflows come from [Pancake Stack](https://github.com/j4ckwinter/pancake-stack), so grab that too.
+
 ## keep it useful
 
 if a project's own repo could hold a fact, that's where it belongs, and the wiki links to it. the wiki can go stale. project instructions and code are the place to verify what is true now.
 
 keep lasting facts and useful gotchas here, with links to where they came from. release notes, task history and raw logs belong elsewhere.
+
+## licence
+
+[MIT](LICENSE). take whatever's useful.
