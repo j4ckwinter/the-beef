@@ -6,10 +6,10 @@ The project owns its own facts. Read its [contributor instructions](../../jackwi
 
 ## The state of the checkout
 
-Checked on 16 November 2026.
+Checked on 17 November 2026.
 
 - Jack chose Astro with Tailwind. The page has a header, bio, GitHub activity grid, experience, education, skills and projects. The roles, skills, email, LinkedIn and CV were copied from Winterbot's plain portfolio; the bio and project blurbs are drafts Jack has not reviewed.
-- `main` is at `3c0e1a5` and level with `origin/main`. Beyond the redesign it has agent pages, latest commits under Activity, theme-coloured company logos, a share card, structured data, robots, a sitemap, a 404 page, tile tooltips with a streak and busiest-day line, a clickable timeline with role durations, project versions, linkable headings, a print stylesheet, relative commit dates and a light/dark toggle. GitHub Actions and Vercel passed on the latest release.
+- `main` is at `332d268` and level with `origin/main`. Beyond the redesign it has agent pages, latest commits under Activity, theme-coloured company logos, a share card, structured data, robots, a sitemap, a 404 page, tile tooltips with a streak and busiest-day line, a clickable timeline with role durations, project versions, linkable headings, a print stylesheet, relative commit dates, a light/dark toggle, a download cv button and a KTO case study at `/work/kto`. GitHub Actions and Vercel passed on the latest release.
 - `public/Jack-Winter-CV.pdf` is a copy of `~/Documents/Jack Winter CV.pdf` as of 16 November 2026. When Jack updates that file, copy it in again.
 - Star counts and contributions are fetched at build time. The activity strip needs a `GITHUB_TOKEN`; without one, or when GitHub fails, the build leaves that data out and warns.
 
@@ -31,7 +31,7 @@ Checked on 16 November 2026 by fetching `https://maxkatz.me/`.
 
 - A weekly link check (`.github/workflows/links.yml`) passed on 16 November 2026. npmjs.com and LinkedIn refuse automated checkers, so npm links are checked through the registry and LinkedIn's 999 status counts as a pass.
 - Vercel Web Analytics was enabled on 16 November 2026. The insights route only appeared after a new deployment, so after toggling analytics, trigger one (the rebuild workflow is enough).
-- `vercel.json` redirects Winter Town's old paths (`/portfolio`, `/work/*`, `/places/*`). They take effect for old links once Jack moves `winterbyte.vercel.app` from the winterbot project to this one with a redirect to `www.jackwinter.xyz`; that move had not been made on 16 November 2026.
+- `vercel.json` redirects Winter Town's old paths (`/portfolio`, `/places/*`); `/work/kto` is now a real page on this site. The redirects take effect for old links once Jack moves `winterbyte.vercel.app` from the winterbot project to this one with a redirect to `www.jackwinter.xyz`; that move had not been made on 17 November 2026.
 
 ## How it relates to the other projects
 
