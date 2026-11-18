@@ -13,6 +13,7 @@ to start here, open an agent session and say what you want to work on. [AGENTS.m
 - [AGENTS.md](AGENTS.md): where to start and where the projects live.
 - [steering](steering/working-preferences.md): how i like to work.
 - [wiki](wiki/pancake-stack.md): what no single project can own. how the projects relate, and how things are set up on my machine.
+- `ideas/`: things i might build next. pick one, and an agent can build it in a queue build without checking in with me. once it's built, it moves to the wiki.
 
 [Pancake Stack](https://github.com/j4ckwinter/pancake-stack) supplies the workflows. this repo doesn't duplicate them. personal skills can come later if there's something the shared plugin doesn't cover.
 
@@ -68,7 +69,7 @@ the workflows come from [Pancake Stack](https://github.com/j4ckwinter/pancake-st
 
 if a project's own repo could hold a fact, that's where it belongs, and the wiki links to it. the wiki can go stale. project instructions and code are the place to verify what is true now.
 
-keep lasting facts and useful gotchas here, with links to where they came from. release notes, task history and raw logs belong elsewhere.
+keep lasting facts and useful gotchas here, with links to where they came from. release notes, task history and raw logs belong elsewhere. the idea queue is the exception: an idea keeps its status, and the reason a build failed, until it's built or i drop it.
 
 ## licence
 
