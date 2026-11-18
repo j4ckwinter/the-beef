@@ -16,5 +16,5 @@ Checked on 18 November 2026.
 ## Showcase
 
 - Idea: [the post that asked for it](https://x.com/bradvin/status/2120925590555668576), posted 12 November 2026.
-- Demo: `../devsweep/docs/demo.html`, about 15 seconds. The raw recording is `../devsweep/docs/demo.cast`.
+- Demo: `../devsweep/docs/demo.gif`, about 15 seconds, at the top of the README. `docs/demo.html` plays the same recording sharper, and `docs/demo.cast` is the raw recording.
 - Posted: not yet
