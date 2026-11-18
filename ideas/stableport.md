@@ -1,5 +1,5 @@
 ---
-status: picked
+status: found
 found: 2026-11-18
 title: stableport
 pitch: A tiny Node CLI that gives every project its own stable, free local port worked out from the project's name, so dev servers stop fighting over 3000, 8000 and 8080.
