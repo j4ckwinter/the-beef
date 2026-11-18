@@ -15,7 +15,7 @@ Checked on 17 November 2026.
 - The GitHub repository is archived and read-only. Unarchive it on GitHub before pushing, opening a pull request or changing settings.
 - The GitHub Pages site was deleted, and https://j4ckwinter.github.io/pancake-ui/ returns 404.
 - The npm package `@jack.winter/pancake-ui` is not yet deprecated: npm was not logged in on this Mac. Every published version stays installable either way.
-- Panky's web app still pins 0.4.0, and [jackwinter](jackwinter.md) still presents Pancake UI. Neither was changed.
+- Panky's web app pins 0.4.0 on GitHub. On 18 November 2026 the Mac's Panky checkout replaced it with shadcn/ui in local, unpushed `main` at `f48598c`; the [Panky page](panky.md) has the details. [jackwinter](jackwinter.md) still presents Pancake UI.
 - The local checkout is on `main` at `7c087dc`, level with `origin/main`. The merged local and remote branches remain.
 
 The sections below describe the library while it was active.
