@@ -1,5 +1,5 @@
 ---
-status: found
+status: building
 found: 2026-11-18
 title: leave it
 pitch: Wrap code that already works in `leave-it:start` and `leave-it:end` comments, and a git hook stops any commit that changes what is inside, so a coding agent's "improvements" to it get caught before they land.
