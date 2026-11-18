@@ -8,8 +8,8 @@ The project owns its own facts. Read its [contributor instructions](../../devswe
 
 Checked on 18 November 2026.
 
-- The GitHub repository is private. Publishing to npm or making it public needs Jack's request.
-- It is not installed or linked anywhere. Run it from the checkout with `npm start -- <folder>`. Once the repository is public, `npx --allow-git=root github:j4ckwinter/devsweep <folder>` runs it anywhere. npm 12 refuses installs from git without that flag; checked on this Mac with npm 12.2.1 against a local git URL.
+- The GitHub repository is public. Publishing to npm or posting about it needs Jack's request.
+- It is not installed or linked anywhere. Run it from the checkout with `npm start -- <folder>`. `npx --allow-git=root github:j4ckwinter/devsweep <folder>` runs it anywhere. npm 12 refuses installs from git without that flag; checked on this Mac with npm 12.2.1.
 - A list-only run over `~/dev` found about 5 GB, mostly `node_modules`. It also found a worktree of Panky's at `/private/tmp/panky-milestone2` whose folder is gone, ready to prune. Nothing was cleared.
 - `docs/demo.gif` is a static image. Nothing in the repository regenerates it, so a new one is made by hand.
 
@@ -17,4 +17,4 @@ Checked on 18 November 2026.
 
 - Idea: [the post that asked for it](https://x.com/bradvin/status/2120925590555668576), posted 12 November 2026.
 - Demo: `../devsweep/docs/demo.gif`, about 15 seconds, at the top of the README.
-- Status: not ready. The GitHub repository is private, so the README's `npx` command and the link would fail for anyone else. Everything else is in place: the README GIF, a one-command run, and the MIT licence.
+- Status: ready to post. The repository is public, and the README's `npx --allow-git=root github:j4ckwinter/devsweep` command was checked from GitHub on 18 November 2026 with a fresh npm cache.
