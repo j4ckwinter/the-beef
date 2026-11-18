@@ -19,4 +19,4 @@ Checked on 18 November 2026.
 
 - Idea: [the post that asked for it](https://x.com/bradvin/status/2120925590555668576), posted 12 November 2026.
 - Demo: `../dustpan/docs/demo.gif`, about 15 seconds, at the top of the README.
-- Status: ready to post. The repository is public, and the README's `npx dustpan` command was checked from npm on 18 November 2026 with a fresh npm cache.
+- Status: posted. [Jack's post](https://x.com/j4ckwinter/status/2123098561088835908), 18 November 2026.
