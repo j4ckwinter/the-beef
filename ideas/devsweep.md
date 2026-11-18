@@ -1,5 +1,5 @@
 ---
-status: picked
+status: building
 found: 2026-11-18
 title: devsweep
 pitch: A terminal tool that finds the junk coding agents leave behind (node_modules, abandoned git worktrees, test traces and build output), shows how much space each takes, and lets you clear the ones you pick.
