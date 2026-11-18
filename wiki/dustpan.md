@@ -9,7 +9,8 @@ The project owns its own facts. Read its [contributor instructions](../../dustpa
 Checked on 18 November 2026.
 
 - It was renamed from devsweep because npm refuses that name as too close to the existing `dev-sweep` package, a similar node_modules cleaner. GitHub redirects the old repository address.
-- The GitHub repository is public. The npm package `dustpan` is not published yet. Jack runs `npm publish` himself; a new version, or posting about it, needs his request.
+- The GitHub repository is public, and [dustpan](https://www.npmjs.com/package/dustpan) 0.1.0 is on npm, so `npx dustpan <folder>` runs it anywhere. Jack runs `npm publish` himself; a new version, or posting about it, needs his request.
+- npm 12 holds a first publish for a few minutes, showing a `0.0.0-stage` placeholder with no command in it until the real version appears.
 - It is not installed or linked anywhere. Run it from the checkout with `npm start -- <folder>`.
 - A list-only run over `~/dev` found about 5 GB, mostly `node_modules`. It also found a worktree of Panky's at `/private/tmp/panky-milestone2` whose folder is gone, ready to prune. Nothing was cleared.
 - `docs/demo.gif` is a static image. Nothing in the repository regenerates it, so a new one is made by hand.
@@ -18,4 +19,4 @@ Checked on 18 November 2026.
 
 - Idea: [the post that asked for it](https://x.com/bradvin/status/2120925590555668576), posted 12 November 2026.
 - Demo: `../dustpan/docs/demo.gif`, about 15 seconds, at the top of the README.
-- Status: not ready. The README's `npx dustpan` command waits on the npm package, which is not published yet.
+- Status: ready to post. The repository is public, and the README's `npx dustpan` command was checked from npm on 18 November 2026 with a fresh npm cache.
