@@ -11,7 +11,7 @@ Checked on 18 November 2026.
 - The GitHub repository is private. Publishing to npm or making it public needs Jack's request.
 - It is not installed or linked anywhere. Run it from the checkout with `npm start -- <folder>`. Once the repository is public, `npx --allow-git=root github:j4ckwinter/devsweep <folder>` runs it anywhere. npm 12 refuses installs from git without that flag; checked on this Mac with npm 12.2.1 against a local git URL.
 - A list-only run over `~/dev` found about 5 GB, mostly `node_modules`. It also found a worktree of Panky's at `/private/tmp/panky-milestone2` whose folder is gone, ready to prune. Nothing was cleared.
-- `npm run demo` records through macOS's `script` command, so it works only on the Mac.
+- `docs/demo.gif` is a static image. Nothing in the repository regenerates it, so a new one is made by hand.
 
 ## Showcase
 
