@@ -13,7 +13,7 @@ Checked on 19 November 2026.
 - The Vercel CLI is not installed globally. `npx vercel@66.2.0` used the login already saved on this Mac, as `jackwinter10-4598`. `vercel link` wrote `.vercel` and an `.env.local` holding a Vercel OIDC token. Both are git-ignored.
 - `public/data` holds two runs from that day, both from this Mac's home connection. The first pinned Lightpanda 1.0.1 and Obscura v0.2.4 so the release diff had something to compare; the second ran the pins in `engines.json`.
 - Kitesurf is not in any run. Its README warns against opening untrusted sites with a local Kitesurf, and hosting it needs a Cloudflare Workers Paid plan. The runner drives it only when `KITESURF_ENDPOINT` is set.
-- The `Survey` workflow runs only when dispatched by hand. Turning on a nightly schedule while the repository is private would spend Jack's GitHub Actions minutes, and a run from GitHub's data-centre addresses gets blocked more than one from home. Both are open decisions.
+- The `Survey` workflow runs only when dispatched by hand. Now the repository is public, GitHub's standard runners cost nothing, but a run from GitHub's data-centre addresses gets blocked more than one from home, and its results only reach the site once the project deploys on push. Turning on a nightly schedule is an open decision.
 - Engine builds download into `.cache/engines`, which Git ignores. On this Mac it held Chromium headless shell 158.0.8127.36, Lightpanda 1.0.1 and 1.0.4, and Obscura v0.2.4 and v0.2.7.
 - Port 4319 on this Mac is held by an SSH tunnel. Don't use it for a preview server.
 - `docs/demo.gif` was made with a throwaway recorder outside the repository: headless Chromium driving `vite preview`, frames encoded with gifenc. Nothing in the repository regenerates it.
