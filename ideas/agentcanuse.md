@@ -1,9 +1,9 @@
 ---
-status: picked
+status: building
 found: 2026-11-19
-title: headless.fyi
+title: agentcanuse
 pitch: A public, nightly scoreboard of the browser engines AI agents use (Kitesurf, Lightpanda, Obscura, agent-browser, Chromium), run against real sites and common tasks, so anyone can see which engine renders, extracts and gets let in, and how that changes release by release.
-demo: Open headless.fyi, see one site rendered side by side by four engines with a score under each, switch to the leaderboard and sort by task success, then open an engine's release diff and watch a handful of sites flip from failing to passing.
+demo: Open agentcanuse, see one site rendered side by side by four engines with a score under each, switch to the leaderboard and sort by task success, then open an engine's release diff and watch a handful of sites flip from failing to passing.
 sources:
   - https://blog.cloudflare.com/kitesurf-open-source/ # published 2026-11-13
   - https://www.helpnetsecurity.com/?p=391308 # published 2026-11
