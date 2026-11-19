@@ -25,6 +25,7 @@ These are Jack's standards for code in any language. They apply in full to his o
 - Choose types that cannot hold an invalid state, where the language allows it.
 - Arrange code so that adding a case touches one place. Prefer exhaustive matches with no catch-all branch, so the compiler or type checker lists what a new case needs.
 - Give a number that tunes behaviour a name and one home.
+- In interface code, that includes colours, spacing, type sizes and radii. Define them as design tokens before the first component, and add a check that fails on one-off values, so they never need retrofitting.
 - Delete code that nothing calls. Do not leave commented-out code, debug switches, or options added for a future that has not arrived.
 - Handle a failure where something can be done about it. Do not swallow an error the user or the caller needs to know about.
 
