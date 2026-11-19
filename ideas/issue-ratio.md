@@ -1,5 +1,5 @@
 ---
-status: picked
+status: found
 found: 2026-11-18
 title: issue ratio
 pitch: A small browser extension that shows open against total on a GitHub repo's Issues and Pull requests tabs, like 2/231, so a low open count reads as well looked-after rather than ignored.

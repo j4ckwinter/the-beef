@@ -1,5 +1,5 @@
 ---
-status: found
+status: picked
 found: 2026-11-19
 title: headless.fyi
 pitch: A public, nightly scoreboard of the browser engines AI agents use (Kitesurf, Lightpanda, Obscura, agent-browser, Chromium), run against real sites and common tasks, so anyone can see which engine renders, extracts and gets let in, and how that changes release by release.
