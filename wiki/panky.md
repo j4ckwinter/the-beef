@@ -2,7 +2,7 @@
 
 [Panky](https://github.com/j4ckwinter/panky) is Jack's AI teammate: a React web app, a Node backend with SQLite, and local models through Ollama. Its checkout is `../panky`, relative to this repository's root.
 
-The project owns its own facts. Read its [contributor instructions](../../panky/AGENTS.md) for the commands, the security rules, and which milestones are authorized. Read its [README](../../panky/README.md) for running it locally, the local model, and the Windows launcher. The [project brief](../../panky/brief.md) holds the milestone detail, and the [architecture case study](../../panky/docs/architecture.md) follows a reply through streaming, cancellation, and recovery.
+The project owns its own facts. Read its [contributor instructions](../../panky/AGENTS.md) for the commands, the security rules, and which milestones are authorized. Read its [running guide](../../panky/docs/running-locally.md) for running it locally, the local model, the Windows launcher and backups. The [project brief](../../panky/brief.md) holds the milestone detail, and the [architecture case study](../../panky/docs/architecture.md) follows a reply through streaming, cancellation, and recovery.
 
 This page holds only what that repository cannot: how Panky is set up on Jack's Windows PC, and what an agent needs to know to work without disturbing it. The other wiki pages describe Jack's Mac. This one describes the PC.
 
@@ -23,11 +23,11 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 
 - Windows 11 Pro with an NVIDIA GeForce RTX 3080 with 10 GB of memory, and 32 GB of RAM. The agent shell offers Windows PowerShell 5.1 and Git Bash.
 - Node.js 24.20.0 and pnpm 12.16.1. Panky asks for Node 24 or newer and pins that pnpm version.
-- Ollama 0.40.16, installed for Jack's user account. A shortcut in the Startup folder launches it at login. It answered on `127.0.0.1:11434`. The user environment variables `OLLAMA_NO_CLOUD` and `OLLAMA_GO_TEMPLATE` are both `1`, as the README asks, and `OLLAMA_HOST` is unset.
+- Ollama 0.40.16, installed for Jack's user account. A shortcut in the Startup folder launches it at login. It answered on `127.0.0.1:11434`. The user environment variables `OLLAMA_NO_CLOUD` and `OLLAMA_GO_TEMPLATE` are both `1`, as the running guide asks, and `OLLAMA_HOST` is unset.
 - Ollama held two models: `qwen3:8b` and `panky-qwen3:8b`. `panky-qwen3:4b`, the earlier configuration, was not installed. Commit `8751e45`, pushed the same day, made the 8b model the documented one. `apps/server/.env` sets `MODEL_NAME=panky-qwen3:8b`. A repository-wide search printed that line by accident.
 - ngrok 3.39.11, installed from the Microsoft Store.
 - Playwright's Chromium is installed under `%LOCALAPPDATA%\ms-playwright`.
-- `apps/server` and `apps/web` each have `.env` and `.env.development`. Apart from that one line, their contents were not read. The README describes the development files as moving `pnpm dev` to port 3002 and its own database.
+- `apps/server` and `apps/web` each have `.env` and `.env.development`. Apart from that one line, their contents were not read. The running guide describes the development files as moving `pnpm dev` to port 3002 and its own database.
 - `apps/server/data` holds the live database `panky.sqlite`, the development database `panky-dev.sqlite`, and a `chatgpt` folder. The folder was not opened. The example configuration puts the ChatGPT subscription credentials there.
 - No backend, tunnel, or development server was running. Nothing answered on ports 3001, 3002, or 5173.
 - `~/.claude/CLAUDE.md` imports the two steering files from `~/Documents/dev/the-beef`, so a Claude Code session that starts in the Panky checkout loads Jack's steering. The file was created on 15 November 2026.
@@ -39,7 +39,7 @@ Checked on 15 November 2026 with Claude Code 2.1.325.
 - The browser tests are built to stay clear of production. [playwright.config.ts](../../panky/playwright.config.ts) starts its own backend on port 3101 and web app on port 5174, with an in-memory database and the mock model. This was read from the configuration. The tests were not run for this page.
 - `pnpm check` runs the backend tests. Panky's instructions require isolated test databases and forbid test conversations in the live one. That rule was not audited test by test for this page.
 - `pnpm evaluate:ollama --run` uses an in-memory database and the real Ollama. It shares the graphics card with any live reply, so expect it to slow production while it runs. That is an inference and was not measured.
-- SQLite stores chats in plaintext. Treat `apps/server/data` as private, including the `backups` folder inside it. Since `ede0eca`, the README's `pnpm backup` copies the live database while the backend runs. Restoring a copy still needs the backend stopped.
+- SQLite stores chats in plaintext. Treat `apps/server/data` as private, including the `backups` folder inside it. Since `ede0eca`, `pnpm backup` copies the live database while the backend runs. Restoring a copy still needs the backend stopped.
 - The web app no longer uses [Pancake UI](https://github.com/j4ckwinter/pancake-ui). On 20 November 2026 the move to shadcn/ui and Tailwind was pushed to `main`, followed by Tech Test (`cfe1ea2`). The same day, at 14:09, the launcher's `-Update` pulled `8c9e970` into this checkout, built it, and started the backend and ngrok; the built server is stamped `8c9e970`. GitHub's `Check` run on `8c9e970` passed. Jack reported that **Connections → ChatGPT** was connected and that a live Tech Test capture got an answer that read the task. The handover file was then removed in `078ad9c` and pushed.
 - Until `aa49110`, Biome's file list excluded only the root `data` folder. On this PC `pnpm check` then failed on the ChatGPT credentials in `apps/server/data/chatgpt` and printed them. Do not run Biome on this checkout from a revision older than that.
 - Later on 20 November 2026 a UX pass was pushed to `main`, ending at `b63decb`. `pnpm build` ran in this checkout, so `apps/server/dist` now holds that revision. The backend started at 14:09 kept running from memory and was not restarted, so it still serves `8c9e970` until the launcher restarts. The only server change is how automatic chat titles are shortened, and the web app does not depend on it.
