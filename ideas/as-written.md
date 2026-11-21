@@ -1,5 +1,5 @@
 ---
-status: picked
+status: found
 found: 2026-11-19
 title: as-written
 pitch: A small linter that checks commands, scripts, file paths and env names in a README against the repo, so a stale page cannot send a person or an agent down a hole.

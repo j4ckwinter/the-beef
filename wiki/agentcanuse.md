@@ -30,4 +30,4 @@ Checked on 19 November 2026.
 
 - Idea: Cloudflare open-sourced its Kitesurf agent browser on [13 November 2026](https://blog.cloudflare.com/kitesurf-open-source/), and every comparison of agent browser engines so far has been a one-off, for example [Lightpanda's own](https://lightpanda.io/blog/posts/benchmarking-lightpanda-for-agents) and [an independent one](https://jacar.es/en/lightpanda-vs-obscura-headless-browser-benchmark/), neither dated on the page. [Help Net Security](https://www.helpnetsecurity.com/?p=391308) covered self-hosting Kitesurf in November 2026.
 - Demo: `../agentcanuse/docs/demo.gif`, 27.6 seconds, at the top of the README. Re-recorded on 19 November for the current design, ending on Obscura v0.2.4 to v0.2.7 with New York Times and React docs now passing.
-- Status: ready to post. The repository is public, the README shows the demo and how to run it, and the site is live at https://agentcanuse.com.
+- Status: posted. Jack reported it posted on 21 November 2026. The post's link is not recorded yet.
