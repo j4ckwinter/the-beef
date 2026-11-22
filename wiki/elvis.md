@@ -11,7 +11,7 @@ This page holds only what that repository cannot: how Elvis is set up on Jack's 
 Checked on 13 November 2026 with Claude Code 2.1.323.
 
 - The plugin is installed at user scope from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as the checkout's `plugin/`, so every Claude Code session on this Mac runs `../elvis/plugin/bin/elvis` as its hook.
-- On 22 November 2026, with Claude Code 2.1.330, the same command reported the installed version as 0.2.1 beside a folder version of 0.4.1. The first figure is only the install record. The hook that runs is the folder's.
+- On 22 November 2026, with Claude Code 2.1.330, the same command reported the installed version as 0.2.1 beside a folder version of 0.4.1, and after the 0.4.2 release the same day, 0.4.2. The first figure is only the install record. The hook that runs is the folder's, and the Elvis on screen was swapped for the 0.4.2 build with `make restart`.
 - `~/.local/bin/elvis` is a link to `plugin/bin/elvis` in the checkout.
 - Jack's `~/.zshrc` loads the zsh shell integration from the same binary. It reports his own test runs, commits, and pushes to Elvis.
 
@@ -40,8 +40,8 @@ A build in the checkout therefore changes the hook for every session, and the `e
 
 The agent's permission classifier has refused these even after Jack asked for the work in chat. Approval in a question dialog has worked for the three it was tried on, so ask that way before handing Jack a command to run.
 
-- Creating and pushing a release tag, on 12 November 2026. It went through once Jack approved it in a dialog, and again on later releases when he approved before the attempt.
-- Running a downloaded binary, on 12 November 2026. On later releases the released binary ran from a scratch profile after approval in a dialog.
+- Creating and pushing a release tag, on 12 November 2026. It went through once Jack approved it in a dialog, and again on later releases when he approved before the attempt. On 22 November 2026 the `v0.4.2` tag went through without a dialog after Jack asked for the release in chat.
+- Running a downloaded binary, on 12 November 2026. On later releases the released binary ran from a scratch profile after approval in a dialog, most recently 0.4.1 on 22 November 2026, installed with `CLAUDE_CONFIG_DIR` set to a scratch directory.
 - Creating `~/.claude/CLAUDE.md`, on 13 November 2026. It went through after approval in a dialog.
 - `claude plugin marketplace add` and `claude plugin install` against his real settings, on 12 November 2026. Jack ran the install himself.
 - Appending to `~/.zshrc`, on 12 November 2026. Jack edited it himself.
