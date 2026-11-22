@@ -11,7 +11,7 @@ This page holds only what that repository cannot: how Elvis is set up on Jack's 
 Checked on 13 November 2026 with Claude Code 2.1.323.
 
 - The plugin is installed at user scope from the local checkout as a marketplace. `claude plugin list --json` reports `readFromFolder` as the checkout's `plugin/`, so every Claude Code session on this Mac runs `../elvis/plugin/bin/elvis` as its hook.
-- The same command reports the installed version as 0.2.1 beside a folder version of 0.4.0. The first figure is only the install record. The hook that runs is the folder's.
+- On 22 November 2026, with Claude Code 2.1.330, the same command reported the installed version as 0.2.1 beside a folder version of 0.4.1. The first figure is only the install record. The hook that runs is the folder's.
 - `~/.local/bin/elvis` is a link to `plugin/bin/elvis` in the checkout.
 - Jack's `~/.zshrc` loads the zsh shell integration from the same binary. It reports his own test runs, commits, and pushes to Elvis.
 
