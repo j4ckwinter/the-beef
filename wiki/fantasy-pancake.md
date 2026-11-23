@@ -22,4 +22,6 @@ Checked on 23 November 2026.
 - `next dev` and `next build` sometimes stop on a Next.js security notice. `next build` succeeds when run again; `next dev` exits, so run the browser tests against `npm run start` with `PLAYWRIGHT_BASE_URL`, as CI does.
 - Playwright's Firefox fails to launch on this Mac. Chromium and WebKit work. CI covers Firefox.
 - `.env.local` and `.vercel/` are in the checkout and ignored by Git.
-- The styles use about 150 distinct raw hex colours outside the `:root` variables in `src/app/globals.css`. The coding standards ask for colour tokens and a check against one-off values. That hasn't been done, because merging colours into tokens would change how the app looks.
+- [PR #3](https://github.com/j4ckwinter/fantasy-pancake/pull/3), opened on 23 November 2026, brings the project up to the coding standards: design tokens with a style check, a pure session reducer, split browser tests, and the bugs the audit found. It waits for Jack to merge; merging deploys it.
+- Jack's next step for the project is moving from Pancake UI to shadcn with a polish pass, built on top of PR #3. Panky made the same move on 17 November 2026, so its commits are the template.
+- Claude Code's `isolation: "worktree"` option made worktrees of `the-beef`, where the session started, not of this project. A worker that needs its own copy of this repository has to create the worktree itself.
