@@ -27,6 +27,7 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | dustpan | `../dustpan` | [dustpan on this Mac](wiki/dustpan.md) |
 | leave it | `../leave-it` | [leave it on this Mac](wiki/leave-it.md) |
 | agentcanuse | `../agentcanuse` | [agentcanuse on this Mac](wiki/agentcanuse.md) |
+| Fantasy Pancake | `../fantasy-pancake` | [Fantasy Pancake on this Mac](wiki/fantasy-pancake.md) |
 
 Jack works on a Mac and a Windows PC. Elvis, Pancake UI, jackwinter, vitals, dustpan, leave it and agentcanuse are checked out only on the Mac. Winterbot has been checked only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
 
