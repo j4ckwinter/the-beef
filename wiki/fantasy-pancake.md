@@ -23,5 +23,5 @@ Checked on 23 November 2026.
 - Playwright's Firefox fails to launch on this Mac. Chromium and WebKit work. CI covers Firefox.
 - `.env.local` and `.vercel/` are in the checkout and ignored by Git.
 - [PR #3](https://github.com/j4ckwinter/fantasy-pancake/pull/3), opened on 23 November 2026, brings the project up to the coding standards: design tokens with a style check, a pure session reducer, split browser tests, and the bugs the audit found. It waits for Jack to merge; merging deploys it.
-- Jack's next step for the project is moving from Pancake UI to shadcn with a polish pass, built on top of PR #3. Panky made the same move on 17 November 2026, so its commits are the template.
+- [PR #4](https://github.com/j4ckwinter/fantasy-pancake/pull/4), stacked on PR #3, moves the app from Pancake UI to shadcn and restyles every screen in "direction A · Tactics board, refined", which Jack picked from mocks on 23 November 2026. It adds a dark mode that follows the system setting. Merge PR #3 first. Each merge to `main` deploys.
 - Claude Code's `isolation: "worktree"` option made worktrees of `the-beef`, where the session started, not of this project. A worker that needs its own copy of this repository has to create the worktree itself.
