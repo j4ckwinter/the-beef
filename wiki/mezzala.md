@@ -12,7 +12,7 @@ Checked on 24 November 2026.
 - It runs on Homebrew's `python3.15`, in `.venv` inside the checkout. The system Python is 3.9, which fmsave does not support.
 - Jack's save is `~/Library/Application Support/Sports Interactive/Football Manager 27/games/Anky Panky Negi - St Mirren.fm`, a St Mirren career at 29 June 2026. It is on FM27 build `27.1.1+2511875`, which fmsave 0.14.3 has not verified; every fmsave reader passed its structural checks.
 - Snapshots go to `~/.mezzala/snapshots.db` by default. Nothing has been written there yet: checks so far used a copy of the save and a scratch database.
-- Jack registered it with Claude Code at user scope (`claude mcp add --scope user mezzala -- ~/dev/mezzala/.venv/bin/mezzala`). Adding it from a session was blocked by the permission check. `claude mcp list` shows it connected.
+- Jack registered it with Claude Code at user scope (`claude mcp add --scope user mezzala -- ~/dev/mezzala/.venv/bin/mezzala`). Adding it from a session was blocked by the permission check. `claude mcp list` shows it connected. It is also in Claude Desktop's `~/Library/Application Support/Claude/claude_desktop_config.json` under `mcpServers`, added on 24 November 2026; the file before that change is kept as `claude_desktop_config.json.before-mezzala`.
 - Money is stored in pounds (`STORED_UNITS_PER_POUND = 1`). Jack confirmed on 24 November 2026 that values and the transfer budget match what FM shows for his St Mirren save.
 
 ## Showcase
