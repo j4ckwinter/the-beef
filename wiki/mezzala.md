@@ -13,7 +13,7 @@ Checked on 24 November 2026.
 - Jack's save is `~/Library/Application Support/Sports Interactive/Football Manager 27/games/Anky Panky Negi - St Mirren.fm`, a St Mirren career at 29 June 2026. It is on FM27 build `27.1.1+2511875`, which fmsave 0.14.3 has not verified; every fmsave reader passed its structural checks.
 - Snapshots go to `~/.mezzala/snapshots.db` by default. Nothing has been written there yet: checks so far used a copy of the save and a scratch database.
 - Jack registered it with Claude Code at user scope (`claude mcp add --scope user mezzala -- ~/dev/mezzala/.venv/bin/mezzala`). Adding it from a session was blocked by the permission check. `claude mcp list` shows it connected.
-- Money is assumed to be stored in pounds (`STORED_UNITS_PER_POUND = 1`). That has not been checked against values FM shows in game.
+- Money is stored in pounds (`STORED_UNITS_PER_POUND = 1`). Jack confirmed on 24 November 2026 that values and the transfer budget match what FM shows for his St Mirren save.
 
 ## Showcase
 
