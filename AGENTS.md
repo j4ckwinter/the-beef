@@ -28,8 +28,9 @@ Each project's repository owns its facts and instructions. The wiki holds what n
 | leave it | `../leave-it` | [leave it on this Mac](wiki/leave-it.md) |
 | agentcanuse | `../agentcanuse` | [agentcanuse on this Mac](wiki/agentcanuse.md) |
 | Fantasy Pancake | `../fantasy-pancake` | [Fantasy Pancake on this Mac](wiki/fantasy-pancake.md) |
+| same again | `../same-again` | [same again on this Mac](wiki/same-again.md) |
 
-Jack works on a Mac and a Windows PC. Elvis, Pancake UI, jackwinter, vitals, dustpan, leave it and agentcanuse are checked out only on the Mac. Winterbot has been checked only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
+Jack works on a Mac and a Windows PC. Elvis, Pancake UI, jackwinter, vitals, dustpan, leave it, agentcanuse and same again are checked out only on the Mac. Winterbot has been checked only on the Mac. Each wiki page says which machine its facts describe, so check that against the machine the session is running on.
 
 ## Idea queue
 
