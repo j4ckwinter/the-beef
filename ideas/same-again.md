@@ -3,23 +3,34 @@ status: found
 found: 2026-11-24
 title: same again
 pitch: A recorder and replayer for web apps that captures a real click-through session, replays it against two builds in a browser where time, randomness and the network are pinned, and diffs the screenshots, so a visual regression shows up without anyone writing a test. The fun is in the determinism, getting one session to draw the same pixels a hundred times in a row.
-demo: Click through a small demo shop with the recorder on and save the session; run `same-again check` and see 100 replays out of 100 come back identical; switch clock control off and watch that count drop; change one CSS rule, run `same-again diff` against the two builds and open a report with the checkout button outlined before and after; then run `same-again select` on that change and watch 40 recorded sessions shrink to the 3 that execute the changed lines.
+demo: Click through a small demo shop with the recorder on and save the session; run `same-again check` and see 100 replays out of 100 come back identical; switch the response-order pin off and watch that count drop; change one CSS rule, run `same-again diff` against the two builds and open a report with the checkout button outlined before and after; end on the results table for a real open-source app, showing its match rate and the named cause of each mismatch that remains.
 sources: []
 ---
 
-Hand-written end-to-end tests cover the paths someone thought of. Recorded sessions cover the paths people actually take, but a recording only works as a test if its replay is exact. A real regression can be a few pixels in one frame, and any noise between runs hides it. A stock browser is not exact: timers, animation frames, font and image loading and the order responses arrive in all vary from run to run.
+Hand-written end-to-end tests cover the paths someone thought of. Recorded sessions cover the paths people actually take, but a recording only works as a test if its replay is exact. A real regression can be a few pixels in one frame, and any noise between runs hides it. A stock browser is not exact: timers, font and image loading and the order responses arrive in all vary from run to run.
+
+## How it gets built
+
+Jack builds this one himself in steered sessions. It is not for a queue build. The point is to understand each determinism fix well enough to explain it, and the honest result is the measurement on a real app, which needs someone checking in.
 
 ## Scope
 
-This is bigger than the other ideas in the queue. Milestones 1 to 3 are the smallest version worth showing, and each later one stands alone.
+Milestones 1 to 4 are the smallest version worth showing. The two after that each stand alone.
 
-1. **Replayer and determinism harness.** A TypeScript CLI that drives stock Chromium, serves every network response from the session file, and pins dates, timers, animation frames and randomness. It takes a screenshot at a checkpoint after each input once the page has settled. The harness replays one session N times and reports how many runs matched at every checkpoint. Fixture pages each isolate one cause of drift (timers, dates, randomness, CSS animation, response ordering, web fonts, lazy images), and the harness must fail when a pin is removed.
-2. **Recorder.** A script tag that captures inputs with their timing, every network response, and the starting state (URL, viewport, storage, cookies). The proof is that a recorded session replays with the app's backend switched off.
+1. **Replayer and determinism harness.** A TypeScript CLI on Playwright. Playwright already fakes dates, timers and animation frames, and stops CSS animations for a screenshot, so the replayer uses those and does not rebuild them. The work is what Playwright leaves open: seeding randomness, releasing responses in their recorded order, waiting for fonts and images, and deciding when a page has settled enough to screenshot. The harness replays one session N times and reports how many runs matched at every checkpoint. Fixture pages each isolate one of those open causes, and the harness must fail when its pin is removed.
+2. **Recorder.** A script tag that captures inputs with their timing, the responses to the app's own data requests (`fetch` and `XMLHttpRequest`), and the starting state (URL, viewport, storage, cookies). A script tag cannot see the CSS, fonts and images the browser loads by itself, and replay must not serve the app's old code anyway, or a change in the new build would never render. So replay takes each kind of response from a different place:
+
+   | Response | Comes from |
+   | --- | --- |
+   | Data requests | The recording |
+   | The app's own scripts, styles and assets | The build under test |
+   | Third-party fonts and images | A cache the replayer fills on its first run |
+
+   A small shop app with an API is the first thing recorded. The proof is that its session replays with the API switched off.
 3. **Before and after diff.** Replay a session against two builds, compare each checkpoint pixel by pixel, and write a static HTML report with before, after and the difference outlined. An unchanged build must produce no differences.
-4. **Coverage index and selection.** Record which source lines each session executes. Given a code change, return the sessions that execute a changed line, then the smallest subset that still covers every changed line the full set covers. A regression seeded in a changed line must still be caught by the subset.
-5. **Speed.** Fast-forward time so waits cost nothing, and run sessions across parallel workers on one machine. Report replay time against recorded time, and wall time against worker count, with the match rate unchanged.
-6. **A real app and a write-up.** Record sessions on one open-source React app, report the match rate, and explain every mismatch that remains, including what stock Chromium cannot pin.
-7. **Demo app, README and recording.** A small shop with seeded sources of drift, the GIF, and docs.
+4. **A real app and a write-up.** Record sessions on one open-source React app that Jack did not write, report the match rate, and explain every mismatch that remains, including what stock Chromium cannot pin. The shop is built to pass, so this is the result that counts. The README and the recording come last.
+5. **Coverage index and selection.** Record which source lines each session executes. Given a code change, return the sessions that execute a changed line, then the smallest subset that still covers every changed line the full set covers. A regression seeded in a changed line must still be caught by the subset.
+6. **Speed.** Fast-forward time so waits cost nothing, and run sessions across parallel workers on one machine. Report replay time against recorded time, and wall time against worker count, with the match rate unchanged.
 
 Not in scope: patching Chromium, replay across machines, sessions generated by agents, a hosted dashboard, and CI or pull request integration.
 
@@ -29,4 +40,11 @@ The systems end of Jack's frontend lane: rendering, pixels, browser internals an
 
 ## Already-built check
 
-Checked the web, npm and one GitHub repository on 24 Nov 2026. At least one commercial product already does this at scale, in a deterministic browser of its own, so this is a build to learn the hard parts, not a gap in the market. In open source, `gbasin/eyespy` describes the same pipeline, but on that date it held a spec and no code, releases or stars. rrweb records and replays the DOM for watching a session back, not for running the app's code again against a new build. OpenReplay is session replay for debugging and analytics. BackstopJS and Lost Pixel diff screenshots of scripted pages and stories, with no recorded sessions. The npm name `same-again` is free.
+Checked the web, npm, Playwright's docs and one GitHub repository on 24 Nov 2026.
+
+- **Commercial:** at least one product already does this at scale, in a deterministic browser of its own. This is a build to learn the hard parts, not a gap in the market.
+- **Playwright:** its docs describe a fake clock (`page.clock`) covering dates, timers and `requestAnimationFrame`, a screenshot assertion that stops CSS animations and transitions, and recording and replay of network traffic as HAR files. Those are the starting point. None of them records a user's session or measures whether a replay is repeatable.
+- **Open source:** `gbasin/eyespy` describes the same pipeline, but on that date it held a spec and no code, releases or stars. rrweb records and replays the DOM for watching a session back, not for running the app's code again against a new build. OpenReplay is session replay for debugging and analytics. BackstopJS and Lost Pixel diff screenshots of scripted pages and stories, with no recorded sessions.
+- **Name:** `same-again` is free on npm.
+
+`sources` is empty on purpose. No dated post prompted this idea.
