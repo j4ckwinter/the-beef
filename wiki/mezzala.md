@@ -8,7 +8,7 @@ The project owns its own facts. Read its [contributor instructions](../../mezzal
 
 Checked on 25 November 2026.
 
-- It is on `main`, pushed to [j4ckwinter/mezzala](https://github.com/j4ckwinter/mezzala). Jack made the repository public on 25 November 2026 and asked for the first release, [v0.1.0](https://github.com/j4ckwinter/mezzala/releases/tag/v0.1.0). It carries `mezzala.mcpb`, a Claude Desktop extension built with Anthropic's `mcpb` packer; AGENTS.md in the project has the release steps. Jack reported on 25 November 2026 that installing it on the Windows PC from the README works, and that mezzala works there.
+- It is on `main`, pushed to [j4ckwinter/mezzala](https://github.com/j4ckwinter/mezzala). Jack made the repository public on 25 November 2026 and asked for the first release, [v0.1.0](https://github.com/j4ckwinter/mezzala/releases/tag/v0.1.0). It carries `mezzala.mcpb`, a Claude Desktop extension built with Anthropic's `mcpb` packer; AGENTS.md in the project has the release steps. Jack reported on 25 November 2026 that he installed it on the Windows PC by asking the Claude desktop app with the README's prompt, and that mezzala works there.
 - Jack's own Claude Code and Claude Desktop still run the checkout's `.venv` server, not the release.
 - It runs on Homebrew's `python3.15`, in `.venv` inside the checkout. The system Python is 3.9, which fmsave does not support.
 - Jack's save is `~/Library/Application Support/Sports Interactive/Football Manager 27/games/Anky Panky Negi - St Mirren.fm`, a St Mirren career at 29 June 2026. It is on FM27 build `27.1.1+2511875`, which fmsave 0.14.3 has not verified; every fmsave reader passed its structural checks.
