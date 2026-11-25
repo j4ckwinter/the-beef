@@ -8,7 +8,8 @@ The project owns its own facts. Read its [contributor instructions](../../mezzal
 
 Checked on 25 November 2026.
 
-- It is on `main`, pushed to the private repository [j4ckwinter/mezzala](https://github.com/j4ckwinter/mezzala).
+- It is on `main`, pushed to [j4ckwinter/mezzala](https://github.com/j4ckwinter/mezzala). Jack made the repository public on 25 November 2026 and asked for the first release, [v0.1.0](https://github.com/j4ckwinter/mezzala/releases/tag/v0.1.0). It carries `mezzala.mcpb`, a Claude Desktop extension built with Anthropic's `mcpb` packer; AGENTS.md in the project has the release steps. The extension has been started outside Claude Desktop but not yet installed in it.
+- Jack's own Claude Code and Claude Desktop still run the checkout's `.venv` server, not the release.
 - It runs on Homebrew's `python3.15`, in `.venv` inside the checkout. The system Python is 3.9, which fmsave does not support.
 - Jack's save is `~/Library/Application Support/Sports Interactive/Football Manager 27/games/Anky Panky Negi - St Mirren.fm`, a St Mirren career at 29 June 2026. It is on FM27 build `27.1.1+2511875`, which fmsave 0.14.3 has not verified; every fmsave reader passed its structural checks.
 - Snapshots and the watchlist go to `~/.mezzala/snapshots.db`. It held one snapshot of the St Mirren career (29 June 2026) in the original format; newer servers keep it readable and re-read the save once to upgrade it. After updating mezzala, both Claude Code and Claude Desktop must be restarted, because an older running server cannot read newer snapshots.
@@ -19,4 +20,4 @@ Checked on 25 November 2026.
 
 - Idea sources: [fmsave](https://github.com/rhiever/fmsave) (created 14 September 2026), [FMSuperScout](https://github.com/mavarobli/FMSuperScout) (created 11 July 2026), [MCPFM](https://github.com/FootballManagerMCP/FootballManagerMCP) (created 11 November 2026), [fm-career-mcp](https://github.com/oguzhanozfe/fm-career-mcp) (created 12 November 2026).
 - Demo: none. Jack did not ask for one.
-- Status: not ready. The repository is private, and there is no demo.
+- Status: not ready. The repository is public, but the README has no demo.
