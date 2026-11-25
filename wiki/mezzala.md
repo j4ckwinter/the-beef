@@ -19,5 +19,5 @@ Checked on 25 November 2026.
 ## Showcase
 
 - Idea sources: [fmsave](https://github.com/rhiever/fmsave) (created 14 September 2026), [FMSuperScout](https://github.com/mavarobli/FMSuperScout) (created 11 July 2026), [MCPFM](https://github.com/FootballManagerMCP/FootballManagerMCP) (created 11 November 2026), [fm-career-mcp](https://github.com/oguzhanozfe/fm-career-mcp) (created 12 November 2026).
-- Demo: none. Jack did not ask for one.
-- Status: not ready. The repository is public, but the README has no demo.
+- Demo: `../mezzala/docs/demo.gif`, about 15 seconds, centred at the top of the README. It replays a real headless Claude Code session (`claude -p` with stream-json output) against the St Mirren save, rendered by a throwaway Playwright and gifenc script outside the repository, so nothing in the repository regenerates it.
+- Status: ready to post. Jack approved the demo and asked for this status on 25 November 2026.
